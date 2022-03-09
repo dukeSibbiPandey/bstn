@@ -3,7 +3,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from 'projects/bstn-app/src/app/app-routing.module';
-import * as interceptor from 'projects/bstn-app/src/app/+core/+inteceptors';
+import * as interceptor from 'projects/bstn-app/src/app/+core/inteceptors';
 import { AppComponent } from './app.component';
 import { BstnComponentsUiModule } from 'projects/bstn-components-ui/src/public-api';
 

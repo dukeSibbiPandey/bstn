@@ -8,8 +8,8 @@ import {
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { SessionData } from 'projects/bstn-app/src/app/+core/+services/sessiondata';
-import { CommonService } from 'projects/bstn-app/src/app/+core/+services/common.service';
+import { SessionData } from 'projects/bstn-app/src/app/+core/services/sessiondata';
+import { CommonService } from 'projects/bstn-app/src/app/+core/services/common.service';
 
 @Injectable()
 export class HeaderInterceptor implements HttpInterceptor {
