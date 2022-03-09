@@ -8,17 +8,23 @@ import {
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { SessionData } from '../+services/sessiondata';
+import { CommonService } from '../+services/common.service';
+
 @Injectable()
 export class HeaderInterceptor implements HttpInterceptor {
-    constructor(private _Router: Router) { }
+    constructor(private _CustomService: CommonService, private _Router: Router) { }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const isSarch = localStorage.getItem('isSearch');
+        const noLoader = localStorage.getItem('isSearch');
+        if (!noLoader) {
+            this._CustomService.show();
+        }
         req = req.clone({
             setHeaders: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + 'aaaaaaaaaaaaaaa'
+                'Authorization': SessionData.AuthToken === null ? '' : 'Bearer ' + SessionData.AuthToken
             }
         });
-        return next.handle(req).pipe(finalize(() => !isSarch ? '' : localStorage.removeItem('isSearch')));
+        return next.handle(req).pipe(finalize(() => !noLoader ? this._CustomService.hide() : localStorage.removeItem('isSearch')));
     }
 }

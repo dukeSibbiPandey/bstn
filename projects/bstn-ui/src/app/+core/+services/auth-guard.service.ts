@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { SessionData } from './sessiondata';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuardService implements CanActivate {
@@ -10,7 +11,7 @@ export class AuthGuardService implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         let bstnForwardUrl = window.location.href;
         localStorage.setItem('bstnForwardUrl', bstnForwardUrl);
-        if ('authtoken') {
+        if (SessionData.AuthToken) {
             return true;
         }
         this.router.navigate(['/auth/login'], { queryParams: route.queryParams })

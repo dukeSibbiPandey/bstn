@@ -2,11 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'bstn-theme',
-  template: `
-    <p>
-      bstn-theme works!
-    </p>
-  `,
+  template: `<div class="container"><button class="btn btn-primary">Button</button></div>`,
   styles: [
   ]
 })

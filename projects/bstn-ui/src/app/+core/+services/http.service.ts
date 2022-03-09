@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpBackend, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpBackend} from '@angular/common/http';
 import { environment } from 'projects/bstn-ui/src/environments/environment';
 @Injectable({
     providedIn: 'root'
 })
-
-
-
 export class HttpService {
     constructor(private http: HttpClient, private httpBackend: HttpBackend) { }
     public Get(url: string, params: any, headers: any): Observable<any> {
