@@ -1,7 +1,145 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "bstn-theme": {
+      "projectType": "library",
+      "root": "projects/bstn-theme",
+      "sourceRoot": "projects/bstn-theme/src",
+      "prefix": "bstn",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/bstn-theme/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/bstn-theme/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/bstn-theme/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bstn-theme/src/test.ts",
+            "tsConfig": "projects/bstn-theme/tsconfig.spec.json",
+            "karmaConfig": "projects/bstn-theme/karma.conf.js"
+          }
+        }
+      }
+    },
+    "bstn-ui": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/bstn-ui",
+      "sourceRoot": "projects/bstn-ui/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/bstn-ui",
+            "index": "projects/bstn-ui/src/index.html",
+            "main": "projects/bstn-ui/src/main.ts",
+            "polyfills": "projects/bstn-ui/src/polyfills.ts",
+            "tsConfig": "projects/bstn-ui/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/bstn-ui/src/favicon.ico",
+              "projects/bstn-ui/src/assets"
+            ],
+            "styles": [
+              "projects/bstn-ui/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/bstn-ui/src/environments/environment.ts",
+                  "with": "projects/bstn-ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "bstn-ui:build:production"
+            },
+            "development": {
+              "browserTarget": "bstn-ui:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "bstn-ui:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bstn-ui/src/test.ts",
+            "polyfills": "projects/bstn-ui/src/polyfills.ts",
+            "tsConfig": "projects/bstn-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/bstn-ui/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/bstn-ui/src/favicon.ico",
+              "projects/bstn-ui/src/assets"
+            ],
+            "styles": [
+              "projects/bstn-ui/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "bstn-theme"
 }

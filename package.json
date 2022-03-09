@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start:bstn": "ng serve bstn-ui",
+    "build:bstn": "ng build bstn-theme",
+    "shorthand": "npm run build:bstn && npm run start:bstn"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +26,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~12.0.5",
     "@angular/cli": "~12.0.5",
     "@angular/compiler-cli": "~12.0.5",
     "@types/jasmine": "~3.6.0",
@@ -33,6 +37,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^12.0.0",
     "typescript": "~4.2.3"
   }
 }
