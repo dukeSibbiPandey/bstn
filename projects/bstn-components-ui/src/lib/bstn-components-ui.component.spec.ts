@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BstnThemeComponent } from './bstn-theme.component';
+import { BstnComponentsUiComponent } from './bstn-components-ui.component';
 
-describe('BstnThemeComponent', () => {
-  let component: BstnThemeComponent;
-  let fixture: ComponentFixture<BstnThemeComponent>;
+describe('BstnComponentsUiComponent', () => {
+  let component: BstnComponentsUiComponent;
+  let fixture: ComponentFixture<BstnComponentsUiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BstnThemeComponent ]
+      declarations: [ BstnComponentsUiComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BstnThemeComponent);
+    fixture = TestBed.createComponent(BstnComponentsUiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

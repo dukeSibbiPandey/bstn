@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/bstn-ui'),
+      dir: require('path').join(__dirname, '../../coverage/bstn-components-ui'),
       subdir: '.',
       reporters: [
         { type: 'html' },

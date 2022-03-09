@@ -2,11 +2,10 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from 'projects/bstn-ui/src/app/app-routing.module';
-import * as interceptor from 'projects/bstn-ui/src/app/+core/+inteceptors';
+import { AppRoutingModule } from 'projects/bstn-app/src/app/app-routing.module';
+import * as interceptor from 'projects/bstn-app/src/app/+core/+inteceptors';
 import { AppComponent } from './app.component';
-// import { BstnThemeModule } from 'projects/bstn-theme/src/public-api';
-import { BstnThemeModule } from 'bstn-theme';
+import { BstnComponentsUiModule } from 'projects/bstn-components-ui/src/public-api';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,7 @@ import { BstnThemeModule } from 'bstn-theme';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BstnThemeModule
+    BstnComponentsUiModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },

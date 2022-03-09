@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start:bstn": "ng serve bstn-ui",
-    "build:bstn": "ng build bstn-theme",
+    "start:bstn": "ng serve bstn-app",
+    "build:bstn": "ng build bstn-components-ui",
     "shorthand": "npm run build:bstn && npm run start:bstn"
   },
   "private": true,

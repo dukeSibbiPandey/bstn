@@ -4,9 +4,17 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "bstn-components-ui": [
+        "dist/bstn-components-ui/bstn-components-ui",
+        "dist/bstn-components-ui"
+      ],
       "bstn-theme": [
         "dist/bstn-theme/bstn-theme",
         "dist/bstn-theme"
+      ],
+      "components-ui": [
+        "dist/components-ui/components-ui",
+        "dist/components-ui"
       ]
     },
     "outDir": "./dist/out-tsc",
