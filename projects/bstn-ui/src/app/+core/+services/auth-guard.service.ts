@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { SessionData } from './sessiondata';
+import { SessionData } from 'projects/bstn-ui/src/app/+core/+services/sessiondata';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuardService implements CanActivate {
