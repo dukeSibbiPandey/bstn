@@ -8,6 +8,7 @@ import { FooterComponent } from './+components/shared/footer/footer.component';
 import { LayoutComponent } from './+components/layout/layout.component';
 import { LoaderComponent } from './+components/shared/loader/loader.component';
 import { ErrorComponent } from './+components/error/error.component';
+import { ComponentsLibModule } from 'components-lib';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ErrorComponent } from './+components/error/error.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ComponentsLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]
