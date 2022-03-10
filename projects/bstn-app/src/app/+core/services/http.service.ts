@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpBackend} from '@angular/common/http';
+import { HttpClient, HttpBackend } from '@angular/common/http';
 import { environment } from 'projects/bstn-app/src/environments/environment';
 @Injectable({
     providedIn: 'root'

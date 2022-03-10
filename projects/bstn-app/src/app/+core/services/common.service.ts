@@ -17,7 +17,7 @@ export class CommonService {
         this.activeLoader.next(false);
         localStorage.removeItem('isSarch');
     }
-    isMobile() {
+isMobile() {
         if (sessionStorage.desktop)
             return false;
         else if (localStorage.mobile)
