@@ -7,6 +7,7 @@ import { HeaderComponent } from './+components/shared/header/header.component';
 import { FooterComponent } from './+components/shared/footer/footer.component';
 import { LayoutComponent } from './+components/layout/layout.component';
 import { LoaderComponent } from './+components/shared/loader/loader.component';
+import { ErrorComponent } from './+components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LoaderComponent } from './+components/shared/loader/loader.component';
     HeaderComponent,
     FooterComponent,
     LayoutComponent,
-    LoaderComponent
+    LoaderComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
