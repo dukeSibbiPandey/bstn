@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start:app":"ng serve bstn-app --open",
+    "start:ui":"ng serve components-ui --port 5200 --open",
+    "build:lib":"ng build components-lib",
+    "shorthand":"npm run build:lib && npm run start:app"
   },
   "private": true,
   "dependencies": {
