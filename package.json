@@ -10,7 +10,8 @@
     "start:app":"ng serve bstn-app --open",
     "start:ui":"ng serve components-ui --port 5200 --open",
     "build:lib":"ng build components-lib",
-    "shorthand":"npm run build:lib && npm run start:app"
+    "shorthand":"npm run build:lib && npm run start:app",
+    "shorthand:ui":"npm run build:lib && npm run start:ui"
   },
   "private": true,
   "dependencies": {
