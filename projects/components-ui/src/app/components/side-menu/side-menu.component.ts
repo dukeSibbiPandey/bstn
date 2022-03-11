@@ -12,6 +12,12 @@ import { PrimeNGConfig } from 'primeng/api';
   `]
 })
 export class SideMenuComponent { 
+  menuItem:any=[
+    {
+      name:'',
+      link:''
+    }
+  ]
   visibleSidebar1:boolean=false;
 
   visibleSidebar2:boolean=false;
