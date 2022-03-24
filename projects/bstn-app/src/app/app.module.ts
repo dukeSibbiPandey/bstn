@@ -10,6 +10,7 @@ import { LoaderComponent } from './+components/shared/loader/loader.component';
 import { ErrorComponent } from './+components/error/error.component';
 import { ComponentsLibModule } from 'components-lib';
 
+
 @NgModule({
   declarations: [
     AppComponent,
