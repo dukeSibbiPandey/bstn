@@ -9,6 +9,7 @@ import { LayoutComponent } from './+components/layout/layout.component';
 import { LoaderComponent } from './+components/shared/loader/loader.component';
 import { ErrorComponent } from './+components/error/error.component';
 import { ComponentsLibModule } from 'components-lib';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ComponentsLibModule } from 'components-lib';
     BrowserModule,
     AppRoutingModule,
     ComponentsLibModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

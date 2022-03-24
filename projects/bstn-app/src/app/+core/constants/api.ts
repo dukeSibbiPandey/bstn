@@ -1,6 +1,6 @@
 export const apiurl = {
     ACCOUNT: {
-        LOGIN: '',
+        LOGIN: '/login',
         SIGNUP: ''
     }
 }
