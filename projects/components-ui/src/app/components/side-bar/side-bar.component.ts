@@ -13,7 +13,7 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 
 export class SideBarComponent { 
-    visibleSidebar1;
+    visibleSidebar1:any
 
     constructor(private primengConfig: PrimeNGConfig) {}
 
