@@ -7,11 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start:app":"ng serve bstn-app --open",
-    "start:ui":"ng serve components-ui --port 5200 --open",
-    "build:lib":"ng build components-lib",
-    "shorthand":"npm run build:lib && npm run start:app",
-    "shorthand:ui":"npm run build:lib && npm run start:ui"
+    "start:app": "ng serve bstn-app --open",
+    "start:ui": "ng serve components-ui --port 5200 --open",
+    "build:lib": "ng build components-lib",
+    "shorthand": "npm run build:lib && npm run start:app",
+    "shorthand:ui": "npm run build:lib && npm run start:ui"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~12.0.5",
     "@angular/router": "~12.0.5",
     "bootstrap": "^5.1.3",
+    "oidc-client": "^1.11.5",
     "primeicons": "^5.0.0",
     "primeng": "^13.0.4",
     "rxjs": "~6.6.0",

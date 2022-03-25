@@ -8,7 +8,7 @@ import { FooterComponent } from './+components/shared/footer/footer.component';
 import { LayoutComponent } from './+components/layout/layout.component';
 import { LoaderComponent } from './+components/shared/loader/loader.component';
 import { ErrorComponent } from './+components/error/error.component';
-import { ComponentsLibModule } from 'components-lib';
+import { ComponentsLibModule } from 'projects/components-lib/src/lib/components-lib.module';
 
 
 @NgModule({
