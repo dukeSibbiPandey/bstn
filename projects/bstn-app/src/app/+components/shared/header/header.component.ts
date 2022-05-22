@@ -117,7 +117,7 @@ export class HeaderComponent implements OnInit {
                {
                   label: 'Manage Clients',
                   icon: 'pi pi-fw pi-user-plus',
-                  routerLink: ['/client/manage-clients'],
+                  routerLink: ['/client/manage'],
                   command: () => this.hideSideBar(),
                },
                {

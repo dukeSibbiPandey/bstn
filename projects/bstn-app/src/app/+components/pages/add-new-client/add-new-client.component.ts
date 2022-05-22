@@ -320,7 +320,7 @@ displayPosition2:boolean;
   //   })
   // }
   SaveFinal(){
-    this.route.navigate(['/client/manage-clients']);
+    this.route.navigate(['/client/manage']);
   }
 
   CloseFinalPopup(){
@@ -352,7 +352,7 @@ displayPosition2:boolean;
     }
     else
     {
-      this.route.navigate(['/client/manage-clients']);
+      this.route.navigate(['/client/manage']);
     }
   }
 
@@ -892,12 +892,12 @@ uploadListener($event:any): void {
     
   }
   onConfirm() {
-    this.route.navigate(['/client/manage-clients']);
+    this.route.navigate(['/client/manage']);
   }
   showConfirm(msg: any) {
     this._MessageService.clear();
     this._MessageService.add({ key: 'c', sticky: true, severity: 'warn', summary: msg, detail: 'Confirm to proceed' });
-    this.route.navigate(['/client/manage-clients']);
+    this.route.navigate(['/client/manage']);
   }
 
   url: string;
@@ -1056,7 +1056,7 @@ uploadListener($event:any): void {
 
 
   cancelClientInfo(){
-    this.route.navigate(['/client/manage-clients']);
+    this.route.navigate(['/client/manage']);
   }
 
   cancelInfo() {
@@ -1066,7 +1066,7 @@ uploadListener($event:any): void {
     }
     else
     {
-    this.route.navigate(['/client/manage-clients']);
+    this.route.navigate(['/client/manage']);
     }
   }
 
@@ -1521,7 +1521,7 @@ this.clientsService.addNewContactNew.ContactAddressLine2="",
   }
 
   Nevigate() {
-    this.route.navigate(['/client/manage-clients']);
+    this.route.navigate(['/client/manage']);
   }
 
   UpdateService() {
