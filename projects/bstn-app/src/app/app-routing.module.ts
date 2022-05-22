@@ -7,32 +7,33 @@ import { ManageClientsComponent } from './+components/pages/manage-clients/manag
 import { AuthGuard } from './+components/shared/auth.guard';
 import { AddNewClientComponent } from './+components/pages/add-new-client/add-new-client.component';
 import { ClientProfileComponent } from './+components/pages/client-profile/client-profile/client-profile.component';
+import { routesConfig } from './_constants/routesConfig';
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
-    path: 'login-page', component: LoginPageComponent,
+    path: routesConfig['LOGIN']['routeState'], component: LoginPageComponent,
   },
   {
-    path: 'dashboard', component: EmployeePageComponent
+    path: routesConfig['DASHBOARD']['routeState'], component: EmployeePageComponent
   },
   {
-    path: 'client',
+    path: routesConfig['CLIENTS']['routeState'],
     loadChildren: () => import('./+features/client/client.module').then(mod => mod.ClientModule)
   },
   {
-    path: 'manage-clients', component: ManageClientsComponent, canActivate: [AuthGuard]
+    path: routesConfig['CLIENT_MANAGE_OLD']['routeState'], component: ManageClientsComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'add-new-client', component: AddNewClientComponent
+    path: routesConfig['CLIENT_ADD_OLD']['routeState'], component: AddNewClientComponent
   },
   {
-    path: 'edit-client/:id', component: AddNewClientComponent
+    path: routesConfig['CLIENT_EDIT_OLD']['routeState'], component: AddNewClientComponent
   },
   {
-    path: 'client-profile/:id', component: ClientProfileComponent
+    path: routesConfig['CLIENT_PROFILE_ID_OLD']['routeState'], component: ClientProfileComponent
   },
   {
-    path: 'client-profile', component: ClientProfileComponent
+    path: routesConfig['CLIENT_PROFILE_OLD']['routeState'], component: ClientProfileComponent
   },
   { path: '**', component: ErrorComponent, pathMatch: 'full' },
 ];

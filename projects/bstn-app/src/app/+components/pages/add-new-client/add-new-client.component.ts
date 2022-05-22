@@ -287,9 +287,6 @@ displayPosition2:boolean;
       Email: this.Email,
       ContactType: this.ContactType,
       ContactForEmergency: this.ContactForEmergency,
-
-
-
     })
   }
 
