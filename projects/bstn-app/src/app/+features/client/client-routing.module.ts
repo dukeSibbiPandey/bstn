@@ -4,8 +4,6 @@ import { ClientComponent } from './components/client.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
 import { ClientProfileComponent } from './components/client-profile/client-profile.component';
 import { ClientManageComponent } from './components/client-manage/client-manage.component';
-
-
 const routes: Routes = [
   {
     path: '',
