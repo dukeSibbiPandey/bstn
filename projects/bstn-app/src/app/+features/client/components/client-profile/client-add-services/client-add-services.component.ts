@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClientsService } from 'projects/bstn-app/src/app/+features/client/clientservice';
+import { ClientsService } from 'projects/bstn-app/src/app/+features/client/services/clientservice';
 @Component({
   selector: 'app-client-add-services',
   templateUrl: './client-add-services.component.html',

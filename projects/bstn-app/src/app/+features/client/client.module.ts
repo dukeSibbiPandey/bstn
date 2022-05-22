@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AdvanceFilterComponent } from './components/client-manage/advance-filter/advance-filter.component';
-import { ClientsService } from './clientservice';
+import { ClientsService } from './services/clientservice';
 import { TabViewModule } from "primeng/tabview";
 import { SliderModule } from 'primeng/slider';
 import { SidebarModule } from 'primeng/sidebar';
