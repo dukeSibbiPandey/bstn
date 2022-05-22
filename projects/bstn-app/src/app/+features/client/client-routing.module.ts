@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClientComponent } from './components/client.component';
-import { ClientProfileComponent } from './components/client-profile/client-profile.component';
-import { ClientManageComponent } from './components/client-manage/client-manage.component';
+import { ClientComponent, ClientManageComponent, ClientProfileComponent } from './index';
 import { routesConfig } from '../../_constants/routesConfig';
 const routes: Routes = [
   {
