@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClientsService } from 'projects/bstn-app/src/app/+features/client/components/client-manage/clientservice';
+import { ClientsService } from 'projects/bstn-app/src/app/+features/client/clientservice';
 @Component({
   selector: 'app-add-new-contact',
   templateUrl: './add-new-contact.component.html',

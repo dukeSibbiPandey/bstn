@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { HttpService } from 'projects/bstn-app/src/app/+core/services/http.service';
-import { ClientsService } from './clientservice';
+import { ClientsService } from '../../clientservice';
 import { AuthService } from 'projects/bstn-app/src/app/+components/shared/auth.service';
 import { Customer } from 'projects/components-ui/src/app/components/controls/client-table/customer'
 import 'jspdf-autotable';

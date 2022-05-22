@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AdvanceFilterComponent } from './components/client-manage/advance-filter/advance-filter.component';
-import { ClientsService } from './components/client-manage/clientservice';
+import { ClientsService } from './clientservice';
 import { ClientPanelMenuComponent } from './components/client-profile/client-panel-menu/client-panel-menu.component';
 import { TabViewModule } from "primeng/tabview";
 import { ClientProfileDocumentsComponent } from './components/client-profile/client-profile-documents/client-profile-documents.component';
