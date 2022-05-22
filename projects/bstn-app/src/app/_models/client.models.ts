@@ -95,5 +95,4 @@ export interface AddServiceData {
     fundCode?: string
     payerAgency?: string
     payerAgencyAddress?: string
-
 }
