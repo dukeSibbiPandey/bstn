@@ -8,10 +8,7 @@ import { ClientsService } from 'projects/bstn-app/src/app/+features/client/clien
 })
 export class AddNewContactComponent implements OnInit {
   @Input() selectedItems: any;
-
   @Input() showActions = true;
-
-
   Contactsubmitted: any;
   cityList = this.clientsService.cityList;
   stateList = this.clientsService.stateList;

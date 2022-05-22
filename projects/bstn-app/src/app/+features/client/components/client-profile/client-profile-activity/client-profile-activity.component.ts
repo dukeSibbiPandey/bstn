@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { SelectItemGroup } from 'primeng/api';
-
 interface City {
     name: string,
     code: string

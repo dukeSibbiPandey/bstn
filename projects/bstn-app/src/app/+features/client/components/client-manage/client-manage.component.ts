@@ -1,15 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { HttpService } from 'projects/bstn-app/src/app/+core/services/http.service';
-import { ClientsService } from '../../clientservice';
+import { ClientsService } from 'projects/bstn-app/src/app/+features/client/clientservice';
 import { AuthService } from 'projects/bstn-app/src/app/+components/shared/auth.service';
-import { Customer } from 'projects/components-ui/src/app/components/controls/client-table/customer'
-import 'jspdf-autotable';
-import * as XLSX from 'xlsx';
-import * as FileSaver from 'file-saver'
-import { ClientFilters } from 'projects/bstn-app/src/app/_models/client.models'
+import { Customer } from 'projects/components-ui/src/app/components/controls/client-table/customer';
+import { ClientFilters } from 'projects/bstn-app/src/app/_models/client.models';
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+import * as XLSX from 'xlsx';
+import * as FileSaver from 'file-saver'
 
 @Component({
   selector: 'app-client-manage',
@@ -21,15 +20,11 @@ export class ClientManageComponent implements OnInit {
   customers: any[];
   selectedCustomer: Customer[];
   dialogVisible: boolean;
-
   scrollableCols: any[];
   showReset: boolean;
   isLoad = true;
-
   frozenCols: any[];
-
   unlockedCustomers: any[];
-
   lockedCustomers: any[];
   searchParam = {
     'page': '0',

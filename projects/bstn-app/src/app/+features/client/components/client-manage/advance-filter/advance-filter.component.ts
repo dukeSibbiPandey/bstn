@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClientsService } from '../../../clientservice';
+import { ClientsService } from 'projects/bstn-app/src/app/+features/client/clientservice';
 @Component({
   selector: 'app-advance-filter',
   templateUrl: './advance-filter.component.html',
