@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from 'projects/bstn-app/src/app/+core/services/http.service';
 import { MessageService } from 'primeng/api';
-import { ClientsService } from '../../../clientservice';
+import { ClientsService } from 'projects/bstn-app/src/app/+features/client/clientservice';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 @Component({

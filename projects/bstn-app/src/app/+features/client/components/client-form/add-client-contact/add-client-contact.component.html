@@ -1,248 +1,205 @@
-
 <div class="form-wrapper form-group" [formGroup]="clientContactInfoForm1">
   <div class="row">
-      
-      <div class="col-sm-12" >
-          <div class="form-group px-lg-3 pt-lg-3">
-              <label for="" class="label-light">First Name*</label>
-              <input type="text"  class="form-control"  formControlName="ContactFirstName"  placeholder="First Name" [(ngModel)]="selectedItems2.ContactFirstName" >
-              <div
-              *ngIf="
+
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-3">
+        <label for="" class="label-light">First Name*</label>
+        <input type="text" class="form-control" formControlName="ContactFirstName" placeholder="First Name"
+          [(ngModel)]="selectedItems2.ContactFirstName">
+        <div *ngIf="
                 (ContactFirstName.invalid && (ContactFirstName.dirty || ContactFirstName.touched)) 
-                || (submittedContact && ContactLastName.invalid) "
-            >
-              <small *ngIf="ContactFirstName.errors?.required" class="text-danger"
-                >First Name is required</small
-              >
-            </div>
-          
-            </div>
+                || (submittedContact && ContactLastName.invalid) ">
+          <small *ngIf="ContactFirstName.errors?.required" class="text-danger">First Name is required</small>
+        </div>
+
       </div>
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light">Last Name*</label>
-              <input type="text" class="form-control" formControlName="ContactLastName"    placeholder="Last Name" [(ngModel)]="selectedItems2.ContactLastName">
-              <div
-              *ngIf="
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Last Name*</label>
+        <input type="text" class="form-control" formControlName="ContactLastName" placeholder="Last Name"
+          [(ngModel)]="selectedItems2.ContactLastName">
+        <div *ngIf="
                 (ContactLastName.invalid && (ContactLastName.dirty || ContactLastName.touched)) 
-                || (submittedContact && ContactLastName.invalid)   "
-            >
-              <small *ngIf="ContactLastName.errors?.required" class="text-danger"
-                >Last Name is required</small
-              >
-            </div>
-            </div>
+                || (submittedContact && ContactLastName.invalid)   ">
+          <small *ngIf="ContactLastName.errors?.required" class="text-danger">Last Name is required</small>
+        </div>
       </div>
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light">Relationship*</label>
-              <input type="text" class="form-control" formControlName="ContactRelationship" [(ngModel)]="selectedItems2.ContactRelationship"  placeholder="Relationship" >
-              <div
-              *ngIf="
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Relationship*</label>
+        <input type="text" class="form-control" formControlName="ContactRelationship"
+          [(ngModel)]="selectedItems2.ContactRelationship" placeholder="Relationship">
+        <div *ngIf="
                 (ContactRelationship.invalid && (ContactRelationship.dirty || ContactRelationship.touched)) 
-                || (submittedContact && ContactRelationship.invalid)  "
-            >
-              <small *ngIf="ContactRelationship.errors?.required" class="text-danger"
-                >Relationship is required</small
-              >
-            </div>
-            </div>
+                || (submittedContact && ContactRelationship.invalid)  ">
+          <small *ngIf="ContactRelationship.errors?.required" class="text-danger">Relationship is required</small>
+        </div>
       </div>
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light">Address*</label>
-              <input type="text" class="form-control" formControlName="Contactaddress" [(ngModel)]="selectedItems2.Contactaddress"  placeholder="Address Line 1" >
-              <div
-              *ngIf="
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Address*</label>
+        <input type="text" class="form-control" formControlName="Contactaddress"
+          [(ngModel)]="selectedItems2.Contactaddress" placeholder="Address Line 1">
+        <div *ngIf="
                 (Contactaddress.invalid && (Contactaddress.dirty || Contactaddress.touched)) 
-                || (submittedContact && Contactaddress.invalid)   "
-            >
-              <small *ngIf="Contactaddress.errors?.required" class="text-danger"
-                >Address is required</small
-              >
-            </div>
-            </div>
+                || (submittedContact && Contactaddress.invalid)   ">
+          <small *ngIf="Contactaddress.errors?.required" class="text-danger">Address is required</small>
+        </div>
       </div>
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light">Address Line 2</label>
-              <input type="text" class="form-control" formControlName="ContactAddressLine2" [(ngModel)]="selectedItems2.ContactAddressLine2">
-          </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Address Line 2</label>
+        <input type="text" class="form-control" formControlName="ContactAddressLine2"
+          [(ngModel)]="selectedItems2.ContactAddressLine2">
       </div>
-      <div class="col-sm-12">
-        <div class="form-group px-lg-3 pt-lg-4">
-            <label for="" class="label-light">State*</label>  
-                         
-            <p-dropdown  [options]="statelst"   optionLabel="name"  formControlName="ContactState"   placeholder="Select State" 
-            [(ngModel)]="selectedItems2.ContactState"  ></p-dropdown>  
-            <div
-              *ngIf="
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">State*</label>
+
+        <p-dropdown [options]="statelst" optionLabel="name" formControlName="ContactState" placeholder="Select State"
+          [(ngModel)]="selectedItems2.ContactState"></p-dropdown>
+        <div *ngIf="
                 (ContactState.invalid && (ContactState.dirty || ContactState.touched)) 
-                || (submittedContact && ContactState.invalid)    "
-            >
-              <small *ngIf="ContactState.errors?.required" class="text-danger"
-                >State is required</small
-              >
-            </div>
+                || (submittedContact && ContactState.invalid)    ">
+          <small *ngIf="ContactState.errors?.required" class="text-danger">State is required</small>
         </div>
+      </div>
     </div>
-     
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light">City*</label> 
-              <input type="text" class="form-control"  formControlName="ContactCity" placeholder="City"  [(ngModel)]="selectedItems2.ContactCity"  >               
-              <div
-              *ngIf="
+
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">City*</label>
+        <input type="text" class="form-control" formControlName="ContactCity" placeholder="City"
+          [(ngModel)]="selectedItems2.ContactCity">
+        <div *ngIf="
                 (ContactCity.invalid && (ContactCity.dirty || ContactCity.touched)) 
-                || (submittedContact && ContactCity.invalid)   "
-            >
-              <small *ngIf="ContactCity.errors?.required" class="text-danger"
-                >City is required</small
-              >
-            </div>
-          </div>
-      </div>
-     
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light">Zip*</label>
-              <input type="text" class="form-control" formControlName="ContactZip"  [(ngModel)]="selectedItems2.ContactZip"  digitonly maxlength="6"  >
-              <div
-              *ngIf="
-                (ContactZip.invalid && (ContactZip.dirty || ContactZip.touched)) 
-                || (submittedContact && ContactZip.invalid)   "
-            >
-              <small *ngIf="ContactZip.errors?.required" class="text-danger"
-                >Zip is required</small
-              >
-            </div>
-          </div>
-      </div>
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light">Specialty*</label>
-              <input type="text" class="form-control"   formControlName="ContactSpeciality"   [(ngModel)]="selectedItems2.ContactSpeciality"  placeholder="Specialty" >
-              <div
-              *ngIf="
-                (ContactSpeciality.invalid && (ContactSpeciality.dirty || ContactSpeciality.touched)) 
-                || (submittedContact && ContactSpeciality.invalid)    "
-            >
-              <small *ngIf="ContactSpeciality.errors?.required" class="text-danger"
-                >Speciality is required</small
-              >
-            </div>
-
-          </div>
-      </div>
-      <div class="col-sm-12">
-        <div class="form-group px-lg-3 pt-lg-4">
-            <label for="" class="label-light ">Agency*</label>
-            <input type="text" class="form-control" formControlName="ContactAgency"  [(ngModel)]="selectedItems2.ContactAgency"  placeholder="Agency" >
-            <div
-              *ngIf="
-                (ContactAgency.invalid && (ContactAgency.dirty || ContactAgency.touched)) 
-                || (submittedContact && ContactAgency.invalid)   "
-            >
-              <small *ngIf="ContactAgency.errors?.required" class="text-danger"
-                >Agency is required</small
-              >
-            </div>
-
+                || (submittedContact && ContactCity.invalid)   ">
+          <small *ngIf="ContactCity.errors?.required" class="text-danger">City is required</small>
         </div>
+      </div>
     </div>
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light ">24 Hour Phone(cont.)</label>
-              <!-- <input  type="text" class="form-control"  [(ngModel)]="selectedItems2.hourPhoneNo"> -->
-              <p-inputMask mask="(999) 999-9999"  formControlName="ContactHourPhoneNo" [(ngModel)]="selectedItems2.ContactHourPhoneNo"   placeholder="(___) ___-____"></p-inputMask>
-          </div>
+
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Zip*</label>
+        <input type="text" class="form-control" formControlName="ContactZip" [(ngModel)]="selectedItems2.ContactZip"
+          digitonly maxlength="6">
+        <div *ngIf="
+                (ContactZip.invalid && (ContactZip.dirty || ContactZip.touched)) 
+                || (submittedContact && ContactZip.invalid)   ">
+          <small *ngIf="ContactZip.errors?.required" class="text-danger">Zip is required</small>
+        </div>
       </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Specialty*</label>
+        <input type="text" class="form-control" formControlName="ContactSpeciality"
+          [(ngModel)]="selectedItems2.ContactSpeciality" placeholder="Specialty">
+        <div *ngIf="
+                (ContactSpeciality.invalid && (ContactSpeciality.dirty || ContactSpeciality.touched)) 
+                || (submittedContact && ContactSpeciality.invalid)    ">
+          <small *ngIf="ContactSpeciality.errors?.required" class="text-danger">Speciality is required</small>
+        </div>
 
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light ">Home Phone</label>
-              <!-- <input type="text" class="form-control"   [(ngModel)]="selectedItems2.homePhone"> -->
-              <p-inputMask mask="(999) 999-9999" formControlName="ContactHomePhone" [(ngModel)]="selectedItems2.ContactHomePhone"   placeholder="(___) ___-____"></p-inputMask>
-
-            </div>
       </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light ">Agency*</label>
+        <input type="text" class="form-control" formControlName="ContactAgency"
+          [(ngModel)]="selectedItems2.ContactAgency" placeholder="Agency">
+        <div *ngIf="
+                (ContactAgency.invalid && (ContactAgency.dirty || ContactAgency.touched)) 
+                || (submittedContact && ContactAgency.invalid)   ">
+          <small *ngIf="ContactAgency.errors?.required" class="text-danger">Agency is required</small>
+        </div>
 
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light ">Cell Phone</label>
-              <!-- <input type="text" class="form-control"   [(ngModel)]="selectedItems2.cellPhone"> -->
-              <p-inputMask mask="(999) 999-9999" formControlName="ContactCellPhone" [(ngModel)]="selectedItems2.ContactCellPhone"  placeholder="(___) ___-____"></p-inputMask>
-            </div>
       </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light ">24 Hour Phone(cont.)</label>
+        <!-- <input  type="text" class="form-control"  [(ngModel)]="selectedItems2.hourPhoneNo"> -->
+        <p-inputMask mask="(999) 999-9999" formControlName="ContactHourPhoneNo"
+          [(ngModel)]="selectedItems2.ContactHourPhoneNo" placeholder="(___) ___-____"></p-inputMask>
+      </div>
+    </div>
 
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light ">Email*</label>
-              <input type="text" class="form-control" placeholder="Email"  formControlName="ContactEmail"  [(ngModel)]="selectedItems2.ContactEmail" >
-              <div
-              *ngIf="
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light ">Home Phone</label>
+        <!-- <input type="text" class="form-control"   [(ngModel)]="selectedItems2.homePhone"> -->
+        <p-inputMask mask="(999) 999-9999" formControlName="ContactHomePhone"
+          [(ngModel)]="selectedItems2.ContactHomePhone" placeholder="(___) ___-____"></p-inputMask>
+
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light ">Cell Phone</label>
+        <!-- <input type="text" class="form-control"   [(ngModel)]="selectedItems2.cellPhone"> -->
+        <p-inputMask mask="(999) 999-9999" formControlName="ContactCellPhone"
+          [(ngModel)]="selectedItems2.ContactCellPhone" placeholder="(___) ___-____"></p-inputMask>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light ">Email*</label>
+        <input type="text" class="form-control" placeholder="Email" formControlName="ContactEmail"
+          [(ngModel)]="selectedItems2.ContactEmail">
+        <div *ngIf="
                 (ContactEmail.invalid && (ContactEmail.dirty || ContactEmail.touched)) 
-            || (submittedContact && ContactEmail.invalid)  "
-            >
-              <small *ngIf="ContactEmail.errors?.required" class="text-danger"
-                >Email is required</small
-              >
-            </div>
-            </div>
+            || (submittedContact && ContactEmail.invalid)  ">
+          <small *ngIf="ContactEmail.errors?.required" class="text-danger">Email is required</small>
+        </div>
       </div>
+    </div>
 
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4">
-              <label for="" class="label-light ">Contact Type*</label>                
-              <p-dropdown style="width: 435px;"  optionLabel="name"  formControlName="ContactContactType" [(ngModel)]="selectedItems2.ContactContactType"  placeholder="Select Contact Type"  [options]="contactTypelst" 
-              ></p-dropdown>  
-              <div
-              *ngIf="
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light ">Contact Type*</label>
+        <p-dropdown style="width: 435px;" optionLabel="name" formControlName="ContactContactType"
+          [(ngModel)]="selectedItems2.ContactContactType" placeholder="Select Contact Type" [options]="contactTypelst">
+        </p-dropdown>
+        <div *ngIf="
                 (ContactContactType.invalid && (ContactContactType.dirty || ContactContactType.touched)) 
-            ||  (submittedContact && ContactContactType.invalid)  "
-            >
-              <small *ngIf="ContactContactType.errors?.required" class="text-danger"
-                >Contact Type is required</small
-              >
-            </div>
-          </div>
+            ||  (submittedContact && ContactContactType.invalid)  ">
+          <small *ngIf="ContactContactType.errors?.required" class="text-danger">Contact Type is required</small>
+        </div>
       </div>
+    </div>
 
-      <div class="col-sm-12">
-          <div class="form-group px-lg-3 pt-lg-4 pb-lg-4">
-              <input type="checkbox" class="check-box" formControlName="ContactContactForEmergency" [(ngModel)]="selectedItems2.ContactContactForEmergency">
-              <label for="" class="label-light ">Contact For Emergency?</label>                
-             
-          </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4 pb-lg-4">
+        <input type="checkbox" class="check-box" formControlName="ContactContactForEmergency"
+          [(ngModel)]="selectedItems2.ContactContactForEmergency">
+        <label for="" class="label-light ">Contact For Emergency?</label>
+
       </div>
+    </div>
 
   </div>
   <div class="listing-actions col-sm-12">
     <div class="btn-action-group col-sm-12 text-right">
-      <button
-        pbutton=""
-        pripple=""
-        type="button"
+      <button pbutton="" pripple="" type="button"
         class="p-element p-button-info btn btn-block btn-sm me-3 px-4 p-button p-component save"
-        (click)="saveContact(clientContactInfoForm1)"
-      >
+        (click)="saveContact(clientContactInfoForm1)">
         Save
       </button>
       &nbsp;
-      <button
-        pbutton=""
-        pripple=""
-        type="button"
+      <button pbutton="" pripple="" type="button"
         class="p-element p-button-secondary btn btn-block btn-sm px-3 p-button p-component close"
-        (click)="cancelInfo($event)"
-       
-      >
+        (click)="cancelInfo($event)">
         Cancel
       </button>
     </div>
   </div>
 </div>
-
-
-
-

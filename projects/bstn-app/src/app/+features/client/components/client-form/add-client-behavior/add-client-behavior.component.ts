@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ClientsService } from '../../../clientservice';
+import { ClientsService } from 'projects/bstn-app/src/app/+features/client/clientservice';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-client-behavior',
-  templateUrl: './add-client-behavior.component.html',
+  templateUrl: './add-client-behavior.cogit mponent.html',
   styleUrls: ['./add-client-behavior.component.scss']
 })
 export class AddClientBehaviorComponent implements OnInit {
