@@ -5,6 +5,7 @@ import { ClientsService } from 'projects/bstn-app/src/app/+features/client/servi
 import { AuthService } from 'projects/bstn-app/src/app/+components/shared/auth.service';
 import { Customer } from 'projects/components-ui/src/app/components/controls/client-table/customer';
 import { ClientFilters } from 'projects/bstn-app/src/app/_models/client.models';
+import { routesConfig } from 'projects/bstn-app/src/app/_constants/routesConfig';
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import * as XLSX from 'xlsx';
@@ -16,6 +17,7 @@ import * as FileSaver from 'file-saver'
   styleUrls: ['./client-manage.component.scss']
 })
 export class ClientManageComponent implements OnInit {
+  routesConfig=routesConfig;
   displayPosition: boolean;
   customers: any[];
   selectedCustomer: Customer[];

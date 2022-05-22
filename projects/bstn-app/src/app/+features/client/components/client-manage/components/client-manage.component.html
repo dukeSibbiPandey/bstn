@@ -1,134 +1,134 @@
 <div class="content-wrapper">
-    <div class="row mt-2">
-      <div class="col-6 p-0">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <!-- <li class="breadcrumb-item"><a href="#">Clients</a></li> -->
-            <li class="breadcrumb-item active" aria-current="page">
-              Manage Clients
-            </li>
-          </ol>
-        </nav>
-      </div>
+  <div class="row mt-2">
+    <div class="col-6 p-0">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <!-- <li class="breadcrumb-item"><a href="#">Clients</a></li> -->
+          <li class="breadcrumb-item active" aria-current="page">
+            Manage Clients
+          </li>
+        </ol>
+      </nav>
     </div>
-    <div class="row mt-2">
-      <div class="col-6 p-0">
-        <h2>Manage Clients</h2>
-      </div>
-      <div class="col-6 pb-2 p-0" style="text-align: right">
-        <button pButton type="button"
-          class="addnewClient p-element p-button-info btn btn-block btn-lg p-button p-component"
-          [routerLink]="['/add-new-client']">
-          + Add New Client
-        </button>
-      </div>
-      <br />
-      <div class="card position-relative">
-        <div class="justify-content-center position-absolute loader-div" id="loader-div" *ngIf="isLoad">
-          <div class="spinner-border" role="status">
-            <span class="sr-only"></span>
-          </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-6 p-0">
+      <h2>Manage Clients</h2>
+    </div>
+    <div class="col-6 pb-2 p-0" style="text-align: right">
+      <button pButton type="button"
+        class="addnewClient p-element p-button-info btn btn-block btn-lg p-button p-component"
+        [routerLink]="[routesConfig['CLIENT_ADD']['routeParam']]">
+        + Add New Client
+      </button>
+    </div>
+    <br />
+    <div class="card position-relative">
+      <div class="justify-content-center position-absolute loader-div" id="loader-div" *ngIf="isLoad">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
         </div>
-  
-        <p-table #dt [value]="customers" [columns]="selectedColumns" scrollDirection="both" [scrollable]="true"
-          scrollHeight="65vh" styleClass="p-mt-3" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10"
-          [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]" selectionMode="multiple"
-          [(selection)]="selectedCustomer" [paginator]="true"
-          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0"
-          [reorderableColumns]="true" [resizableColumns]="true">
-          <ng-template pTemplate="caption">
-            <div style="text-align: left">
-              <div class="row"></div>
+      </div>
+
+      <p-table #dt [value]="customers" [columns]="selectedColumns" scrollDirection="both" [scrollable]="true"
+        scrollHeight="65vh" styleClass="p-mt-3" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10"
+        [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]" selectionMode="multiple"
+        [(selection)]="selectedCustomer" [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0"
+        [reorderableColumns]="true" [resizableColumns]="true">
+        <ng-template pTemplate="caption">
+          <div style="text-align: left">
+            <div class="row"></div>
+          </div>
+          <div class="ui-helper-clearfix">
+            <div class="col-md-12">
+              <label>Active/Inactive</label>
             </div>
-            <div class="ui-helper-clearfix">
-              <div class="col-md-12">
-                <label>Active/Inactive</label>
-              </div>
-  
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-3">
-                    <div style="text-align: left">
-                      <p-dropdown [options]="customerStatus" [(ngModel)]="selectedStatus" optionLabel="label"
-                        (onChange)="selectStatus($event)" class="active-inactive"></p-dropdown>
-                    </div>
+
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-3">
+                  <div style="text-align: left">
+                    <p-dropdown [options]="customerStatus" [(ngModel)]="selectedStatus" optionLabel="label"
+                      (onChange)="selectStatus($event)" class="active-inactive"></p-dropdown>
                   </div>
-                  <div class="col">
-                    <div class="filterRow d-flex">
-                      <div *ngIf="showReset">
-                        <button pButton type="button"
-                          class="advanceFilter p-element p-button-info btn btn-block btn-lg p-button p-component"
-                          (click)="resetFilter()">
-                          Reset Filter
-                        </button>
-                      </div>
-                      &nbsp;
-                      <div [ngClass]=" advanceStatus ? 'active' : '' ">
-                        <button pButton type="button"
-                          class="advanceFilter p-element p-button-info btn btn-block btn-lg p-button p-component"
-                          (click)="openFilterPopup()" [ngClass]="
+                </div>
+                <div class="col">
+                  <div class="filterRow d-flex">
+                    <div *ngIf="showReset">
+                      <button pButton type="button"
+                        class="advanceFilter p-element p-button-info btn btn-block btn-lg p-button p-component"
+                        (click)="resetFilter()">
+                        Reset Filter
+                      </button>
+                    </div>
+                    &nbsp;
+                    <div [ngClass]=" advanceStatus ? 'active' : '' ">
+                      <button pButton type="button"
+                        class="advanceFilter p-element p-button-info btn btn-block btn-lg p-button p-component"
+                        (click)="openFilterPopup()" [ngClass]="
                             displayPosition
                               ? 'active'
                               : ''
                           ">
-                          Advance Filter
-                        </button>
-                      </div>
-                      <div class="dropdown dropdown-download">
-                        <span class="tooltiptext left-N50">Download</span>
-                        <button (click)="dropDownhandler()" class="dropbtn exportBtn"></button>
-                        <div [ngClass]="
+                        Advance Filter
+                      </button>
+                    </div>
+                    <div class="dropdown dropdown-download">
+                      <span class="tooltiptext left-N50">Download</span>
+                      <button (click)="dropDownhandler()" class="dropbtn exportBtn"></button>
+                      <div [ngClass]="
                             status
                               ? 'dropdown-content show'
                               : 'dropdown-content hide'
                           ">
-                          <div class="d-flex export-title">Export As</div>
-                          <div class="d-flex export-as">
-                            <input for="" exportcsv type="radio" name="export" (click)="exportTypeClick('CSV')" />
-                            <a id="exportword" style="z-index: auto">Word</a>
-                          </div>
-                          <div class="d-flex export-as">
-                            <input for="exportexcel" type="radio" name="export" (click)="exportTypeClick('Excel')" />
-                            <a id="exportexcel" style="z-index: auto">Excel</a>
-                          </div>
-                          <div class="d-flex export-as">
-                            <input for="exportpdf" type="radio" name="export" (click)="exportTypeClick('PDF')" />
-                            <a id="exportpdf" style="z-index: auto">PDF</a>
-                          </div>
-                          <div class="d-flex export-as">
-                            <input for="" exportcsv type="radio" name="export" (click)="exportTypeClick('CSV')" />
-                            <a id="exportcsv" style="z-index: auto">CSV</a>
-                          </div>
-                          <div class="exportfileBtn">
-                            <a (click)="exportData()" class="btn" id="exportbtn" style="z-index: auto">Export</a>
-                          </div>
-  
-                          <!-- <a
+                        <div class="d-flex export-title">Export As</div>
+                        <div class="d-flex export-as">
+                          <input for="" exportcsv type="radio" name="export" (click)="exportTypeClick('CSV')" />
+                          <a id="exportword" style="z-index: auto">Word</a>
+                        </div>
+                        <div class="d-flex export-as">
+                          <input for="exportexcel" type="radio" name="export" (click)="exportTypeClick('Excel')" />
+                          <a id="exportexcel" style="z-index: auto">Excel</a>
+                        </div>
+                        <div class="d-flex export-as">
+                          <input for="exportpdf" type="radio" name="export" (click)="exportTypeClick('PDF')" />
+                          <a id="exportpdf" style="z-index: auto">PDF</a>
+                        </div>
+                        <div class="d-flex export-as">
+                          <input for="" exportcsv type="radio" name="export" (click)="exportTypeClick('CSV')" />
+                          <a id="exportcsv" style="z-index: auto">CSV</a>
+                        </div>
+                        <div class="exportfileBtn">
+                          <a (click)="exportData()" class="btn" id="exportbtn" style="z-index: auto">Export</a>
+                        </div>
+
+                        <!-- <a
                               style="z-index: auto"
                               (click)="dt.exportCSV({ selectionOnly: true })"
                               >Select Data</a> -->
-                        </div>
                       </div>
-  
-                      <div class="printData position-relative">
-                        <span class="tooltiptext end-0">Print</span>
-                      </div>
-                      <div class="column-selection position-relative">
-                        <span class="tooltiptext left-N50">Customise</span>
-                        <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
-                          selectedItemsLabel="{0}" class="columnSelect">
-                          <ng-template pTemplate="header">
-                            Custom Column
-                          </ng-template>
-                          <ng-template pTemplate="footer">
-                            <div class="exportfileBtn">
-                              <a class="btn" id="exportbtn" style="z-index: auto" (click)="saveLayout()">Save Layout</a>
-                            </div>
-                          </ng-template>
-                        </p-multiSelect>
-  
-                      </div>
-                      <!-- <div class="dropdown dropdown-download">
+                    </div>
+
+                    <div class="printData position-relative">
+                      <span class="tooltiptext end-0">Print</span>
+                    </div>
+                    <div class="column-selection position-relative">
+                      <span class="tooltiptext left-N50">Customise</span>
+                      <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
+                        selectedItemsLabel="{0}" class="columnSelect">
+                        <ng-template pTemplate="header">
+                          Custom Column
+                        </ng-template>
+                        <ng-template pTemplate="footer">
+                          <div class="exportfileBtn">
+                            <a class="btn" id="exportbtn" style="z-index: auto" (click)="saveLayout()">Save Layout</a>
+                          </div>
+                        </ng-template>
+                      </p-multiSelect>
+
+                    </div>
+                    <!-- <div class="dropdown dropdown-download">
                         <span class="tooltiptext left-N50">Customise</span>
                         <button
                           (click)="dropDownhandler_1()"
@@ -194,28 +194,28 @@
                               >Select Data</a> 
                         </div>
                       </div> -->
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </ng-template>
-  
-          <ng-template pTemplate="header" let-columns class="dataTableHead">
-            <tr *ngIf="!NoData">
-              <th style="width: 70px" pFrozenColumn [pSortableColumn]="'id'">
-                #
-                <p-sortIcon [field]="'clientProfileID'"></p-sortIcon>
-              </th>
-              <th style="width: 150px" pFrozenColumn [pSortableColumn]="'firstName'">
-                First Name
-                <p-sortIcon [field]="'firstName'"></p-sortIcon>
-              </th>
-              <th style="width: 150px" pFrozenColumn [pSortableColumn]="'lastName'">
-                Last Name
-                <p-sortIcon [field]="'lastName'"></p-sortIcon>
-              </th>
-              <!-- <th style="width:150px" [pSortableColumn]="'age'">Age
+          </div>
+        </ng-template>
+
+        <ng-template pTemplate="header" let-columns class="dataTableHead">
+          <tr *ngIf="!NoData">
+            <th style="width: 70px" pFrozenColumn [pSortableColumn]="'id'">
+              #
+              <p-sortIcon [field]="'clientProfileID'"></p-sortIcon>
+            </th>
+            <th style="width: 150px" pFrozenColumn [pSortableColumn]="'firstName'">
+              First Name
+              <p-sortIcon [field]="'firstName'"></p-sortIcon>
+            </th>
+            <th style="width: 150px" pFrozenColumn [pSortableColumn]="'lastName'">
+              Last Name
+              <p-sortIcon [field]="'lastName'"></p-sortIcon>
+            </th>
+            <!-- <th style="width:150px" [pSortableColumn]="'age'">Age
                 <p-sortIcon [field]="'age'"></p-sortIcon>
               </th>
               <th style="width:150px" [pSortableColumn]="'city'">City
@@ -236,93 +236,92 @@
               <th style="width:150px" [pSortableColumn]="'email'">Email
                 <p-sortIcon [field]="'email'"></p-sortIcon>
               </th> -->
-  
-              <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="width: 220px">
-                {{ col.header }}
-                <p-sortIcon [field]="col.field"></p-sortIcon>
-              </th>
-              <th style="width: 150px" [pSortableColumn]="'inactive'">
-                Status
-                <p-sortIcon [field]="'inactive'"></p-sortIcon>
-              </th>
-              <th style="font-weight: bold">Action</th>
-            </tr>
-            <tr></tr>
-            <tr class="noDataROw" *ngIf="NoData">
-              <td class="no-record-found">
-                <strong>Sorry! No Records Found As per selected Filter Criteria</strong>
-              </td>
-            </tr>
-            <tr></tr>
-          </ng-template>
-  
-          <ng-template pTemplate="body" let-customer let-columns="columns">
-            <tr [pSelectableRow]="customer">
-              <td style="width: 70px" pFrozenColumn>
-                <strong>{{ customer.id }}</strong>
-              </td>
-              <td style="width: 150px" pFrozenColumn>
-                <a href="javascript:void(0)" [routerLink]="'/client/profile/' + customer.id" pTooltip="View Profile"
-                  tooltipPosition="top">
-                  <i class="fa fa-pencil cursor-pointer"></i><strong>{{ customer.firstName }}</strong>
-                </a>
-              </td>
-              <td style="width: 150px" pFrozenColumn>
-                <strong>{{ customer.lastName }}</strong>
-              </td>
-              <!-- <td style="width:150px"><strong>{{customer.age}}</strong></td>
+
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="width: 220px">
+              {{ col.header }}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th style="width: 150px" [pSortableColumn]="'inactive'">
+              Status
+              <p-sortIcon [field]="'inactive'"></p-sortIcon>
+            </th>
+            <th style="font-weight: bold">Action</th>
+          </tr>
+          <tr></tr>
+          <tr class="noDataROw" *ngIf="NoData">
+            <td class="no-record-found">
+              <strong>Sorry! No Records Found As per selected Filter Criteria</strong>
+            </td>
+          </tr>
+          <tr></tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-customer let-columns="columns">
+          <tr [pSelectableRow]="customer">
+            <td style="width: 70px" pFrozenColumn>
+              <strong>{{ customer.id }}</strong>
+            </td>
+            <td style="width: 150px" pFrozenColumn>
+              <a href="javascript:void(0)" [routerLink]="'/client/profile/' + customer.id" pTooltip="View Profile"
+                tooltipPosition="top">
+                <i class="fa fa-pencil cursor-pointer"></i><strong>{{ customer.firstName }}</strong>
+              </a>
+            </td>
+            <td style="width: 150px" pFrozenColumn>
+              <strong>{{ customer.lastName }}</strong>
+            </td>
+            <!-- <td style="width:150px"><strong>{{customer.age}}</strong></td>
               <td style="width:150px"><strong>{{customer.city}}</strong></td>
               <td style="width:150px"><strong>{{customer.state}}</strong></td>
               <td style="width:150px"><strong>{{customer.zip}}</strong></td>
               <td style="width:150px"><strong>{{customer.phone_Primary}}</strong></td>
               <td style="width:150px"><strong>{{customer.phone_Secondary}}</strong></td>
               <td style="width:150px"><strong>{{customer.email}}</strong></td> -->
-  
-              <td *ngFor="let col of columns" style="width: 220px">
-                {{ customer[col.field] }}
-              </td>
-              <td style="width: 150px">
-                <strong [ngClass]="customer.inactive == true ? 'active-status' : 'inactive-status'">{{
-                  customer.inactive == true ? "Active" : "Inactive"
-                  }}</strong>
-              </td>
-              <td class="a-center" width="100">
-                <a href="javascript:void(0)" [routerLink]="'/edit-client/' + customer.id" pTooltip="Edit Cilent"
-                  tooltipPosition="top">
-                  <div class="d-inline-block edit-Button"><img src="../../../../assets/img/Pencil-blue.svg" alt=""></div>
-                </a>
-              </td>
-            </tr>
-          </ng-template>
-        </p-table>
+
+            <td *ngFor="let col of columns" style="width: 220px">
+              {{ customer[col.field] }}
+            </td>
+            <td style="width: 150px">
+              <strong [ngClass]="customer.inactive == true ? 'active-status' : 'inactive-status'">{{
+                customer.inactive == true ? "Active" : "Inactive"
+                }}</strong>
+            </td>
+            <td class="a-center" width="100">
+              <a href="javascript:void(0)" [routerLink]="'/edit-client/' + customer.id" pTooltip="Edit Cilent"
+                tooltipPosition="top">
+                <div class="d-inline-block edit-Button"><img src="../../../../assets/img/Pencil-blue.svg" alt=""></div>
+              </a>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+
+<p-dialog header="Advance Filter" [(visible)]="displayPosition" [position]="position" [modal]="true"
+  [style]="{ width: '450px', height: '100vh', maxHeight: 'none' }" [baseZIndex]="10000" [draggable]="false"
+  [resizable]="false" class="popup-screen">
+  <div class="row add-dialog edit-form">
+    <app-advance-filter [showActions]="false" [selectedItems]="selectedItems"></app-advance-filter>
+
+    <div class="listing-actions col-sm-12">
+      <div class="btn-action-group col-sm-12 text-right">
+        <button pbutton="" pripple="" type="button"
+          class="p-element btn btn-block btn-primary p-button me-3 px-4 p-component save"
+          (click)="advanceFilter('search')">
+          Apply
+        </button>
+        <button pbutton="" pripple="" type="button" (click)="resetFilter()"
+          class="p-element btn btn-block btn-dark p-button me-3 px-4 p-component">
+          Reset
+        </button>
+        <button pbutton="" pripple="" type="button"
+          class="p-element p-button-secondary btn btn-block btn-default px-3 p-button p-component close"
+          (click)="cancelDetails()">
+          Cancel
+        </button>
       </div>
     </div>
   </div>
-  
-  <p-dialog header="Advance Filter" [(visible)]="displayPosition" [position]="position" [modal]="true"
-    [style]="{ width: '450px', height: '100vh', maxHeight: 'none' }" [baseZIndex]="10000" [draggable]="false"
-    [resizable]="false" class="popup-screen">
-    <div class="row add-dialog edit-form">
-      <app-advance-filter [showActions]="false" [selectedItems]="selectedItems"></app-advance-filter>
-  
-      <div class="listing-actions col-sm-12">
-        <div class="btn-action-group col-sm-12 text-right">
-          <button pbutton="" pripple="" type="button"
-            class="p-element btn btn-block btn-primary p-button me-3 px-4 p-component save"
-            (click)="advanceFilter('search')">
-            Apply
-          </button>
-          <button pbutton="" pripple="" type="button" (click)="resetFilter()"
-            class="p-element btn btn-block btn-dark p-button me-3 px-4 p-component">
-            Reset
-          </button>
-          <button pbutton="" pripple="" type="button"
-            class="p-element p-button-secondary btn btn-block btn-default px-3 p-button p-component close"
-            (click)="cancelDetails()">
-            Cancel
-          </button>
-        </div>
-      </div>
-  
-    </div>
-  </p-dialog>
+</p-dialog>
