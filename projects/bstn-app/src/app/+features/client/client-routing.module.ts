@@ -20,10 +20,10 @@ const routes: Routes = [
         path: routesConfig['CLIENT_PROFILE_ID']['routeState'], component: ClientProfileComponent
       },
       {
-        path: 'add-new-client', component: AddNewClientComponent
+        path: routesConfig['CLIENT_ADD']['routeState'], component: AddNewClientComponent
       },
       {
-        path: 'edit-client/:id', component: AddNewClientComponent
+        path: routesConfig['CLIENT_EDIT']['routeState'], component: AddNewClientComponent
       }
     ]
   }
