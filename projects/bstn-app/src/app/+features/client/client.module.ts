@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ClientRoutingModule } from './client-routing.module';
-import { ClientComponent } from './components/client.component';
-import { ClientManageComponent } from './components/client-manage/client-manage.component';
-import { ClientProfileComponent } from './components/client-profile/client-profile.component';
 import { NgSelectConfig, NgSelectModule } from '@ng-select/ng-select';
 import { TableModule } from 'primeng/table';
 import { CalendarModule } from 'primeng/calendar';
@@ -22,6 +18,11 @@ import { ClientsService } from './clientservice';
 import { TabViewModule } from "primeng/tabview";
 import { SliderModule } from 'primeng/slider';
 import { SidebarModule } from 'primeng/sidebar';
+
+import { ClientRoutingModule } from './client-routing.module';
+/* Client Module Component */
+import { ClientComponent, ClientManageComponent, ClientProfileComponent } from './index';
+
 /* Client Profile Components */
 import { AddNewContactComponent, BowelTrackComponent, ClientAddServicesComponent, ClientPanelMenuComponent, ClientProfileActivityComponent, ClientProfileContactsComponent, ClientProfileDocumentsComponent, ClientProfileHealthPassportComponent, ClientProfileServicesComponent, ClientProfileTherapistsComponent } from './components/client-profile/index';
 @NgModule({
