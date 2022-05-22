@@ -19,19 +19,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AdvanceFilterComponent } from './components/client-manage/advance-filter/advance-filter.component';
 import { ClientsService } from './clientservice';
-import { ClientPanelMenuComponent } from './components/client-profile/client-panel-menu/client-panel-menu.component';
 import { TabViewModule } from "primeng/tabview";
-import { ClientProfileDocumentsComponent } from './components/client-profile/client-profile-documents/client-profile-documents.component';
 import { ClientProfileTherapistsComponent } from './components/client-profile/client-profile-therapists/client-profile-therapists.component';
-import { ClientProfileContactsComponent } from './components/client-profile/client-profile-contacts/client-profile-contacts.component';
-import { AddNewContactComponent } from './components/client-profile/add-new-contact/add-new-contact.component';
-import { ClientAddServicesComponent } from './components/client-profile/client-add-services/client-add-services.component';
-import { ClientProfileActivityComponent } from './components/client-profile/client-profile-activity/client-profile-activity.component';
-import { ClientProfileHealthPassportComponent } from './components/client-profile/client-profile-health-passport/client-profile-health-passport.component';
-import { ClientProfileServicesComponent } from './components/client-profile/client-profile-services/client-profile-services.component';
-import { BowelTrackComponent } from './components/client-profile/bowel-track/bowel-track.component';
 import { SliderModule } from 'primeng/slider';
 import { SidebarModule } from 'primeng/sidebar';
+/* Client Profile Components */
+import { AddNewContactComponent, BowelTrackComponent, ClientAddServicesComponent, ClientPanelMenuComponent, ClientProfileActivityComponent, ClientProfileContactsComponent, ClientProfileDocumentsComponent, ClientProfileHealthPassportComponent, ClientProfileServicesComponent } from './components/client-profile/index';
 @NgModule({
   declarations: [
     ClientComponent,
