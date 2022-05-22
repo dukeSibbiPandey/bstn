@@ -33,6 +33,7 @@ import { ClientProfileServicesComponent } from './components/client-profile/clie
 import { BowelTrackComponent } from './components/client-profile/bowel-track/bowel-track.component';
 import { SliderModule } from 'primeng/slider';
 import { SidebarModule } from 'primeng/sidebar';
+import { AddClientBehaviorComponent } from './components/client-form/add-client-behavior/add-client-behavior.component';
 @NgModule({
   declarations: [
     ClientComponent,
@@ -49,7 +50,8 @@ import { SidebarModule } from 'primeng/sidebar';
     ClientProfileActivityComponent,
     ClientProfileHealthPassportComponent,
     ClientProfileServicesComponent,
-    BowelTrackComponent
+    BowelTrackComponent,
+    AddClientBehaviorComponent,
   ],
   imports: [
     CommonModule,
