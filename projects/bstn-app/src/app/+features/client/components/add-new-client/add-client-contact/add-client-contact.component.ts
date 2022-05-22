@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpService } from 'projects/bstn-app/src/app/+core/services/http.service';
 import { MessageService } from 'primeng/api';
+import { HttpService } from 'projects/bstn-app/src/app/+core/services/http.service';
 import { ClientsService } from 'projects/bstn-app/src/app/+features/client/services/clientservice';
 @Component({
   selector: 'app-add-contact-client',
@@ -78,9 +78,6 @@ export class AddClientContactComponent implements OnInit {
       ContactEmail: this.ContactEmail,
       ContactContactType: this.ContactContactType,
       ContactContactForEmergency: this.ContactContactForEmergency,
-
-
-
     })
 
   }
@@ -89,8 +86,6 @@ export class AddClientContactComponent implements OnInit {
 
     this.closePopup.emit();
   }
-
-
 
   postContactData: any;
   saveContact(clientContactInfoForm1: any) {
