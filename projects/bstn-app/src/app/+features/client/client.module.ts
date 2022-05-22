@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientRoutingModule } from './client-routing.module';
-import { ClientComponent } from './client.component';
+import { ClientComponent } from './components/client.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
 import { ClientManageComponent } from './components/client-manage/client-manage.component';
 import { ClientProfileComponent } from './components/client-profile/client-profile.component';
