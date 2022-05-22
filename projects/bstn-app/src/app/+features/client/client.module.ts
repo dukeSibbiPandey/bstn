@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { NgSelectConfig, NgSelectModule } from '@ng-select/ng-select';
 
-import { ClientCustomModule } from './cliemt.custom.module';
+import { ClientCustomModule } from './client.custom.module';
 
 /* Client Module  */
 import { ClientComponent, ClientManageComponent, ClientProfileComponent, AdvanceFilterComponent, ClientsService, ClientRoutingModule } from './index';

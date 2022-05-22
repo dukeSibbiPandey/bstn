@@ -100,7 +100,7 @@ import { BowelTrackComponent } from './+components/pages/client-profile/bowel-tr
     EmployeePageShiftsComponent,
     AddClientContactComponent,
     BowelTrackingComponent,
-    BowelTrackComponent,
+    BowelTrackComponent
   ],
   imports: [
     BrowserModule,
