@@ -1,1 +1,1042 @@
-<p>client-form works!</p>
+<div class="content-wrapper">
+  <div class="row mt-2">
+    <div class="col-6">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <!-- <li class="breadcrumb-item">
+              <a href="javascript:void(0)">Clients</a>
+            </li> -->
+          <li *ngIf="showServiceInformation!=true" class="breadcrumb-item">
+            <a href="javascript:void(0)" (click)="FinalSave()">Manage Clients</a>
+          </li>
+          <li *ngIf="showServiceInformation!=true" class="breadcrumb-item active" aria-current="page">
+            {{ ViewName }}
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <p-dialog header="Confirmation" [style]="{ width: '75px', height: '20vh', maxHeight: 'none' }"
+    [(visible)]="displayPopupContactFinal" class="modelPopup" [modal]="true"
+    [style]="{ width: '320px', height: '36vh' }" [draggable]="false" [resizable]="false">
+    <div>
+      <p>Are You want to Save Client Without Contact?</p>
+    </div>
+    <div class="button-box">
+      <button class="btn next-btn" (click)="SaveFinal()">Yes</button>
+      <button (click)="CloseFinalPopup()" class="btn cancel-btn ms-3">No</button>
+    </div>
+  </p-dialog>
+  <p-dialog header="Confirmation" [style]="{ width: '75px', height: '20vh', maxHeight: 'none' }"
+    [(visible)]="displayPopupServiceFinal" class="modelPopup" [modal]="true"
+    [style]="{ width: '320px', height: '36vh' }" [draggable]="false" [resizable]="false">
+    <div>
+      <p>Are You want to Save Client Without Services?</p>
+    </div>
+    <div class="button-box">
+      <button class="btn next-btn" (click)="SaveFinal()">Yes</button>
+      <button (click)="CloseFinalPopup()" class="btn cancel-btn ms-3">No</button>
+    </div>
+  </p-dialog>
+  <div class="row mt-2">
+    <div class="col-6">
+      <h2>{{ ViewName }}</h2>
+    </div>
+  </div>
+  <p-toast [position]="commonToastPosition" key="clearkToastMsg1"></p-toast>
+  <p-tabView class="add-new-client" [activeIndex]="index">
+
+    <p-tabPanel header="Client Information" [selected]="selectedTab === 1" class="client-information">
+      <ng-template pTemplate="header">
+        <span>Client Information</span>
+        <i class="position-relative"><img src="../../../../assets/img/blue-tick.svg" alt=""></i>
+      </ng-template>
+
+      <form [formGroup]="clientInfoForm" #f="ngForm" (keydown.enter)="$event.preventDefault()">
+        <div class="row">
+          <div class="col-md-9 client-form pt-lg-4">
+            <div class="row">
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">First Name<span class="blue-star">*</span></label>
+                <input type="text" pInputText class="form-control" required formControlName="FirstName" name="firstName"
+                  placeholder="First Name" />
+                <div *ngIf="
+                      (FirstName.invalid &&
+                        (FirstName.dirty || FirstName.touched)) ||
+                      (submitted && FirstName.invalid)
+                    " class="msgError">
+                  <small class="text-danger" *ngIf="FirstName.errors?.required">
+                    First Name is Required.
+                  </small>
+                </div>
+              </div>
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Middle Name</label>
+                <input type="text" pInputText class="form-control" formControlName="MiddleName" name="middleName"
+                  placeholder="Middle Name" />
+              </div>
+
+              <!-- <div class="col-6 pb-4 p-3">
+                  <label>File Description</label>
+                     <input type="file" #importInput class="form-control r10" name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" />
+                  <input type="text" class="form-control" #Description placeholder="File Description" />
+                </div>
+                <div class="col-6 pb-4 p-3">
+      
+                  <img class="d-block mx-auto display-img" src="{{photoPath}}" alt="">
+                </div> -->
+            </div>
+            <div class="row">
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Last Name<span class="blue-star">*</span></label>
+                <input type="text" pInputText class="form-control" required formControlName="LastName" name="lastName"
+                  placeholder="Last Name" />
+                <div *ngIf="
+                      (LastName.invalid &&
+                        (LastName.dirty || LastName.touched)) ||
+                      (submitted && LastName.invalid)
+                    ">
+                  <small *ngIf="LastName.errors?.required" class="text-danger">Last Name is required</small>
+                </div>
+              </div>
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Custom Initial<span class="blue-star">*</span></label>
+                <input type="text" pInputText class="form-control" required formControlName="CustomeInitial"
+                  maxlength="2" name="customeInitial" placeholder="Custom Initial" />
+                <div *ngIf="
+                      (CustomeInitial.invalid &&
+                        (CustomeInitial.dirty || CustomeInitial.touched)) ||
+                      (submitted && CustomeInitial.invalid)
+                    ">
+                  <small *ngIf="CustomeInitial.errors?.required" class="text-danger">Custome Initial is required</small>
+                  <!-- <small *ngIf="!CustomeInitial.errors?.required" class="text-danger">
+                      Please enter the correct email, this email not valid.
+                    </small> -->
+                </div>
+              </div>
+              <!-- <div class="col-4">
+      
+                  </div> -->
+            </div>
+            <div class="row">
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Given Name</label>
+                <input type="text" pInputText class="form-control" formControlName="GivenName" name="givenName"
+                  placeholder="Given Name" />
+              </div>
+              <div class="col-6 pb-4 pe-5">
+                <label class="block dateofBearth">Date of Birth<span class="blue-star">*</span></label>
+                <div class="row position-relative m-0">
+                  <div class="col-4 p-0">
+                    <p-dropdown [options]="DayList" formControlName="Day" optionLabel="name" placeholder="Day"
+                      class="day-dropdown" (onChange)="_calculateAge($event)">
+                    </p-dropdown>
+                    <div *ngIf="
+                          (Day.invalid && (Day.dirty || Day.touched)) ||
+                          (submitted && Day.invalid)
+                        ">
+                      <small *ngIf="Day.errors?.required" class="text-danger">Day is required</small>
+
+                    </div>
+                    <small *ngIf="ageInYear" class="text-age">
+                      Age <span>{{ageInYear}}</span> Years.
+                    </small>
+                  </div>
+                  <div class="col-4 p-0">
+                    <p-dropdown [options]="MonthList" formControlName="Month" optionLabel="name" placeholder="Month"
+                      class="mon-dropdown" (onChange)="_calculateAge($event)">
+                    </p-dropdown>
+                    <div *ngIf="
+                          (Month.invalid && (Month.dirty || Month.touched)) ||
+                          (submitted && Month.invalid)
+                        ">
+                      <small *ngIf="Month.errors?.required" class="text-danger">Month is required</small>
+                    </div>
+                  </div>
+                  <div class="col-4 p-0">
+                    <p-dropdown [options]="YearList" formControlName="Year" optionLabel="name" placeholder="Year"
+                      class="year-dropdown" (onChange)="_calculateAge($event)">
+                    </p-dropdown>
+                    <div *ngIf="
+                          (Year.invalid && (Year.dirty || Year.touched)) ||
+                          (submitted && Year.invalid)
+                        ">
+                      <small *ngIf="Year.errors?.required" class="text-danger">Year is required</small>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- <p-calendar
+                    formControlName="DateOfBirth"
+                    name="DateOfBirth"
+                    placeholder="mm/dd/yy"
+                  ></p-calendar> -->
+              <!-- <div *ngIf="(DateOfBirth.invalid && (DateOfBirth.dirty || DateOfBirth.touched)) || (submitted && DateOfBirth.invalid)">
+                    <small
+                      *ngIf="DateOfBirth.errors?.required"
+                      class="text-danger"
+                      >Date of Birth is required</small
+                    >
+                  </div> -->
+
+              <!-- <div class="col-4">
+      
+                  </div> -->
+            </div>
+
+            <div class="row">
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Gender<span class="blue-star">*</span></label>
+                <p-dropdown [options]="genderlst" formControlName="Gender" optionLabel="name" placeholder="Select">
+                </p-dropdown>
+                <div *ngIf="
+                      (Gender.invalid && (Gender.dirty || Gender.touched)) ||
+                      (submitted && Gender.invalid)
+                    ">
+                  <small *ngIf="Gender.errors?.required" class="text-danger">Gender is required</small>
+                </div>
+              </div>
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Address<span class="blue-star">*</span></label>
+                <input type="text" required pInputText class="form-control" formControlName="address"
+                  name="addressLine1" placeholder="Address Line 1" />
+                <div *ngIf="
+                      (address.invalid && (address.dirty || address.touched)) ||
+                      (submitted && address.invalid)
+                    ">
+                  <small *ngIf="address.errors?.required" class="text-danger">Address is required</small>
+                </div>
+              </div>
+              <!-- <div class="col-4">
+      
+                  </div> -->
+            </div>
+
+            <div class="row">
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Address Line 2</label>
+                <input type="text" pInputText class="form-control" formControlName="AddressLine2" name="addressLine2"
+                  placeholder="Address Line 2" />
+              </div>
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">State<span class="blue-star">*</span></label>
+                <p-dropdown [options]="statelst" optionLabel="name" formControlName="State" placeholder="Select State">
+                </p-dropdown>
+                <div *ngIf="
+                      (State.invalid && (State.dirty || State.touched)) ||
+                      (submitted && State.invalid)
+                    ">
+                  <small *ngIf="State.errors?.required" class="text-danger">State is required</small>
+                </div>
+              </div>
+
+              <!-- <div class="col-4">
+      
+                  </div> -->
+            </div>
+            <div class="row">
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">City<span class="blue-star">*</span></label>
+                <input type="text" required pInputText class="form-control" formControlName="City" />
+                <div *ngIf="(City.invalid &&(City.dirty || City.touched)) ||
+                  (submitted && City.invalid)" class="msgError">
+                  <small *ngIf="City.errors?.required" class="text-danger">City is required</small>
+                </div>
+              </div>
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Zip<span class="blue-star">*</span></label>
+                <input type="text" digitonly maxlength="6" required pInputText class="form-control"
+                  formControlName="Zip" name="addressLine1" placeholder="Zip" />
+                <div *ngIf="
+                      (Zip.invalid && (Zip.dirty || Zip.touched)) ||
+                      (submitted && Zip.invalid)
+                    ">
+                  <small *ngIf="Zip.errors?.required" class="text-danger">Zip is required</small>
+                </div>
+              </div>
+              <!-- <div class="col-4">
+      
+                  </div> -->
+            </div>
+            <p-toast [position]="commonToastPosition" key="clearkToastMsg"></p-toast>
+            <div class="row">
+              <div class="col-6 pb-4 pe-5">
+                <label class="block position-relative">Assigned Phone Number<div class="d-inline-block toolTip"><a><img
+                        class="ms-1" src="../../../../assets/img/InfoCircleFill.svg" alt=""><span
+                        class="tooltiptext">Subscriber provided phone number to the client</span></a></div></label>
+                <p-inputMask mask="(999) 999-9999" formControlName="AssignedPhoneNumber" placeholder="(___) ___-____">
+                </p-inputMask>
+                <!-- <input
+                    type="text" 
+                    digitonly
+                    pInputText
+                    class="form-control"
+                    formControlName="AssignedPhoneNumber"
+                    name="assignedPhoneNumber"
+                    (keyup)="assignedPhoneNumberFormat($event)"
+                  /> -->
+              </div>
+              <div class="col-6 pb-4 pe-5">
+                <label class="block position-relative">Client's Contact Number<div class="d-inline-block toolTip">
+                    <a><img class="ms-1" src="../../../../assets/img/InfoCircleFill.svg" alt=""><span
+                        class="tooltiptext">Personal contact number provided by the client</span></a>
+                  </div></label>
+                <p-inputMask mask="(999) 999-9999" formControlName="ClientContactNumber" placeholder="(___) ___-____">
+                </p-inputMask>
+                <!-- <input
+                    type="text" 
+                    pInputText
+                    class="form-control"
+                    formControlName="ClientContactNumber"
+                    name="clientContactNumber"
+                    (keyup)="clientContactNumberFormat($event)"
+                  /> -->
+              </div>
+              <!-- <div class="col-4">
+      
+                  </div> -->
+            </div>
+            <div class="row">
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">SSN</label>
+                <!-- <p-inputMask mask="999-99-9999"  formControlName="SSN" ></p-inputMask> -->
+                <input type="text" formControlName="SSN" pInputText class="form-control" name="ssn" placeholder="SSN" />
+              </div>
+            </div>
+
+            <br />
+            <h4 class="pb-4 mb-0">Conservator information</h4>
+            <div class="row">
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">First Name<span class="blue-star">*</span></label>
+                <input type="text" required pInputText class="form-control" formControlName="ConservatorFirstName"
+                  name="firstName" placeholder="First Name" />
+                <div *ngIf="
+                      (ConservatorFirstName.invalid &&
+                        (ConservatorFirstName.dirty ||
+                          ConservatorFirstName.touched)) ||
+                      (submitted && ConservatorFirstName.invalid)
+                    ">
+                  <small *ngIf="ConservatorFirstName.errors?.required" class="text-danger">First Name is
+                    required</small>
+                </div>
+              </div>
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Last Name<span class="blue-star">*</span></label>
+                <input type="text" required pInputText class="form-control" formControlName="ConservatorLastName"
+                  name="lastName" placeholder="Last Name" />
+                <div *ngIf="
+                      (ConservatorLastName.invalid &&
+                        (ConservatorLastName.dirty ||
+                          ConservatorLastName.touched)) ||
+                      (submitted && ConservatorLastName.invalid)
+                    ">
+                  <small *ngIf="ConservatorLastName.errors?.required" class="text-danger">Last Name is required</small>
+                </div>
+              </div>
+              <!-- <div class="col-4">
+      
+                  </div> -->
+            </div>
+            <div class="row">
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Phone Number*</label>
+                <p-inputMask mask="(999) 999-9999" formControlName="ConservatorPhone" placeholder="(___) ___-____">
+                </p-inputMask>
+                <!-- <input
+                    type="text"
+                    required digitonly
+                    pInputText
+                    class="form-control"
+                    formControlName="ConservatorPhone"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    (keyup)="conservatorPhoneFormat($event)"
+                  /> -->
+                <div *ngIf="
+                      (ConservatorPhone.invalid &&
+                        (ConservatorPhone.dirty || ConservatorPhone.touched)) ||
+                      (submitted && ConservatorPhone.invalid)
+                    ">
+                  <small *ngIf="ConservatorPhone.errors?.required" class="text-danger">Phone Number is required</small>
+                </div>
+              </div>
+              <div class="col-6 pb-4 pe-5">
+                <label class="block">Relation<span class="blue-star">*</span></label>
+
+                <p-dropdown [options]="ConservatorRelationlst" optionLabel="name" formControlName="ConservatorRelation"
+                  placeholder="Relation">
+                </p-dropdown>
+                <div *ngIf="
+                      (ConservatorRelation.invalid &&
+                        (ConservatorRelation.dirty ||
+                          ConservatorRelation.touched)) ||
+                      (submitted && ConservatorRelation.invalid)
+                    ">
+                  <small *ngIf="ConservatorRelation.errors?.required" class="text-danger">Relation is required</small>
+                </div>
+              </div>
+              <!-- <div class="col-4">
+      
+                  </div> -->
+            </div>
+
+            <div class="row pe-lg-5">
+              <div class="top-border pt-lg-3">
+                <div class="col-4">
+                  <button *ngIf="!showEdit" pbutton="" pripple="" type="button"
+                    class="p-element p-button-info btn btn-block btn-sm p-button p-component next-btn"
+                    (click)="saveClientInfo(clientInfoForm)">
+                    Next
+                  </button>
+
+                  <button *ngIf="showEdit" pbutton="" pripple="" type="button"
+                    class="p-element p-button-info btn btn-block btn-sm p-button p-component next-btn"
+                    (click)="saveClientInfo(clientInfoForm)">
+                    Save
+                  </button>
+
+                  &nbsp;
+                  <button pbutton="" pripple="" type="button"
+                    class="p-element p-button-secondary btn btn-block btn-sm p-button p-component cancel-btn ms-3"
+                    (click)="cancelClientInfo()">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3 client-form">
+            <div class="row">
+              <div class="col-12">
+                <label> Client Photo</label>
+                <!-- <input type="file" #importInput class="form-control r10" name="Upload CSV" id="txtFileUpload"
+                    (change)="uploadListener($event,Description)" /> -->
+
+                <div class="drop-it-hot" id="drop-area">
+                  <div class="circle pb-1">
+                    <i><img src="../../assets/img/camera.png" alt="" loading="lazy" /></i>
+
+                  </div>
+                  <div *ngIf="Clientphoto" class="image-box img-area"> <img src="{{Clientphoto}}" alt="" /></div>
+
+                  <div class="justify-content-center position-absolute loader-div" id="loader-div"
+                    *ngIf="isphotoupload">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only"></span>
+                    </div>
+                  </div>
+                  <form class="choose-files">
+                    <div class="button-wrapper">
+                      <!-- <label class="label pb-2 text-center" for="fileElem">Drag image here to upload<br>or</label> -->
+                      <button *ngIf="Clientphoto" type="button" for="fileElem" class="btn btn-block btn-primary">
+                        Change File
+                      </button>
+                      <button *ngIf="!Clientphoto" type="button" for="fileElem" class="btn btn-block btn-primary">
+                        Browse File
+                      </button>
+                      <input type="file" id="fileElem" multiple accept="image/*" (change)="uploadListener($event)" />
+                      <!-- <img
+                            src="{{ clientPhotoObj && clientPhotoObj.file_Path }}"
+                          /> -->
+                    </div>
+                  </form>
+                  <div id="gallery"></div>
+                </div>
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </p-tabPanel>
+    <p-tabPanel [selected]="selectedTab === 2" header="Service Information" [disabled]="showServiceInformation"
+      class="service-information">
+      <ng-template pTemplate="header">
+        <span>Service Information</span>
+        <i class="position-relative"><img src="../../../../assets/img/blue-tick.svg" alt=""></i>
+      </ng-template>
+      <div class="service-info mx-auto">
+        <div class="service-top">
+          <div class="service-header" *ngIf="ViewData">
+            <!-- <img src="{{ViewData.clientPicture.filePath}}" alt="" /> -->
+            <img *ngIf="Clientphoto!=null" src="{{Clientphoto}}" alt="" />
+            <img *ngIf="Clientphoto==null" src="../../assets/img/NoImage.png" alt="" />
+            <h3 class="mb-0" *ngIf="ViewData">
+              {{ViewData.firstName}} {{ViewData.lastName}}<br /><span>
+                {{ViewData.gender=='M'? "Male" : "Female"}},
+                {{ViewData.age}} year
+              </span>
+            </h3>
+            <table>
+              <colgroup>
+                <col class="first" />
+                <col />
+              </colgroup>
+              <tr>
+                <td>Client type</td>
+                <td>Residential Provider</td>
+              </tr>
+              <tr>
+                <td><strong>{{ClientType==""?"N/A":ClientType}}</strong></td>
+                <td>
+                  <input type="text" pInputText class="form-control" [(ngModel)]="Residentialprovider"
+                    placeholder="Residential provider Name" />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="service-main">
+          <div class="service-head position-relative">
+            <h3>
+              Service type<button class="btn position-absolute" (click)="openAddServicePopup(0)">
+                + Add New Service
+              </button>
+            </h3>
+          </div>
+          <div class="row" style="margin: 0 -1rem">
+            <div class="col-3 p-3">
+              <label class="service-box {{activeClass}}">
+
+                <input *ngIf="BehaviorAnalyst" type="checkbox" pTooltip="Change Status" tooltipPosition="top" name=""
+                  id="" (click)="OpenPopup(1,'',$event)" [(ngModel)]="BehaviorAnalystCheckbox"
+                  checked="{{BehaviorAnalystCheckbox}}" />
+                <a pTooltip="Add Service Details" tooltipPosition="top" style="float:right;margin-top:-25px"
+                  *ngIf="BehaviorAnalyst!=true" (click)="openAddServicePopup(1)"><span
+                    class="p-menuitem-icon pi pi-fw pi-plus ng-star-inserted"></span></a>
+                <a href="javascript:void(0)" pTooltip="Edit Service Details" tooltipPosition="top"
+                  style="float:right;margin-top:-25px" *ngIf="BehaviorAnalyst" (click)="openAddServiceEditPopup(1,'')">
+                  <div class="d-inline-block edit-Button"><img src="../../../../assets/img/Pencil-blue.svg" alt="">
+                  </div>
+                </a>
+                <div class="service-content w-100 text-center" style="clear:both">
+
+                  <img src="../../../../assets/img/behavior-analyst-grey.png" alt="" />
+                  <h3>Behavior Analyst</h3>
+                </div>
+              </label>
+            </div>
+            <div class="col-3 p-3">
+              <label class="service-box {{activeClass1}}">
+                <input *ngIf="BehaviorSpecialist" type="checkbox" pTooltip="Change Status" tooltipPosition="top" name=""
+                  id="" (click)="OpenPopup(2,'',$event)" [(ngModel)]="BehaviorSpecialistCheckbox"
+                  checked="{{BehaviorSpecialistCheckbox}}" />
+                <a pTooltip="Add Service Details" tooltipPosition="top" style="float:right;margin-top:-25px"
+                  *ngIf="BehaviorSpecialist!=true" (click)="openAddServicePopup(2)"><span
+                    class="p-menuitem-icon pi pi-fw pi-plus ng-star-inserted"></span></a>
+                <a href="javascript:void(0)" pTooltip="Edit Service Details" tooltipPosition="top"
+                  style="float:right;margin-top:-25px" *ngIf="BehaviorSpecialist"
+                  (click)="openAddServiceEditPopup(2,'')">
+                  <div class="d-inline-block edit-Button"><img src="../../../../assets/img/Pencil-blue.svg" alt="">
+                  </div>
+                </a>
+                <div class="service-content w-100 text-center" style="clear:both">
+                  <img src="../../../../assets/img/behavior-specialist-grey.png" alt="" />
+                  <h3>Behavior Specialist</h3>
+                </div>
+              </label>
+            </div>
+            <div class="col-3 p-3">
+              <label class="service-box {{activeClass2}}">
+                <input *ngIf="SupportedLiving" type="checkbox" pTooltip="Change Status" tooltipPosition="top" name=""
+                  id="" (click)="OpenPopup(3,'',$event)" checked="{{SupportedLiving}}"
+                  [(ngModel)]="SupportedLivingCheckbox" />
+                <a pTooltip="Add Service Details" tooltipPosition="top" style="float:right;margin-top:-25px"
+                  *ngIf="SupportedLiving!=true" (click)="openAddServicePopup(3)"><span
+                    class="p-menuitem-icon pi pi-fw pi-plus ng-star-inserted"></span></a>
+                <a href="javascript:void(0)" pTooltip="Edit Service Details" tooltipPosition="top"
+                  style="float:right;margin-top:-25px" *ngIf="SupportedLiving" (click)="openAddServiceEditPopup(3,'')">
+                  <div class="d-inline-block edit-Button"><img src="../../../../assets/img/Pencil-blue.svg" alt="">
+                  </div>
+                </a>
+                <div class="service-content w-100 text-center" style="clear:both">
+                  <img src="../../../../assets/img/supported-living-grey.svg" alt="" />
+                  <h3>Supported Living</h3>
+                </div>
+              </label>
+            </div>
+
+            <div class="col-3 p-3">
+              <label class="service-box {{activeClass3}}">
+                <input *ngIf="DayService" type="checkbox" name="" pTooltip="Change Status" tooltipPosition="top" id=""
+                  (click)="OpenPopup(4,'',$event)" checked="{{DayService}}" [(ngModel)]="DayServiceCheckbox" />
+                <a pTooltip="Add Service Details" tooltipPosition="top" style="float:right;margin-top:-25px"
+                  *ngIf="DayService!=true" (click)="openAddServicePopup(4)"><span
+                    class="p-menuitem-icon pi pi-fw pi-plus ng-star-inserted"></span></a>
+                <a href="javascript:void(0)" pTooltip="Edit Service Details" tooltipPosition="top"
+                  style="float:right;margin-top:-25px" *ngIf="DayService" (click)="openAddServiceEditPopup(4,'')">
+                  <div class="d-inline-block edit-Button"><img src="../../../../assets/img/Pencil-blue.svg" alt="">
+                  </div>
+                </a>
+                <div class="service-content w-100 text-center" style="clear:both">
+                  <img src="../../../../assets/img/day-service-grey.svg" alt="" />
+                  <h3>Day Service</h3>
+                </div>
+              </label>
+            </div>
+            <div class="col-3 p-3" *ngFor="let item of AdditionalSer">
+              <!-- <div *ngIf="item.clientBillingType!=''"> -->
+              <label id="{{item.clientBillingType}}" class="service-box {{item.active==true?'active':''}}">
+                <div class="row_edit">
+                  <input class="{{item.clientBillingType}}" type="checkbox" name="" id="" pTooltip="Change Status"
+                    tooltipPosition="top" (click)="OpenPopup(item.clientServType,item.clientBillingType,$event)"
+                    checked="{{item.active}}" [(ngModel)]="item.active" />
+                  <a href="javascript:void(0)" pTooltip="Edit Service Details" tooltipPosition="top"
+                    style="float:right;margin-top:-25px"
+                    (click)="openAddServiceEditPopup(item.clientServType,item.clientBillingType)" ptooltip="Edit Cilent"
+                    tooltipposition="top" class="p-element">
+                    <div class="d-inline-block edit-Button"><img src="../../../../assets/img/Pencil-blue.svg" alt="">
+                    </div>
+                  </a>
+                </div>
+
+                <!-- <button (click)="openAddServiceEditPopup(item.clientServType,item.clientBillingType)">Edit</button> -->
+
+                <div class="service-content w-100 text-center" style="clear:both">
+                  <img src="../../../../assets/img/service-name-grey.png" alt="" />
+                  <h3>{{item.clientBillingType}}</h3>
+                </div>
+
+                <!-- <button (click)="openAddServiceEditPopup(item.clientServType,item.clientBillingType)">Edit</button> -->
+
+
+
+              </label>
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+        <p-dialog [(visible)]="displayPopup" header="Confirmation" [modal]="true" class="modelPopup" [draggable]="false"
+          [resizable]="false">
+          <div class="popup-inner-coontent">
+            <label>{{displayPopupText}}</label>
+          </div>
+          <div class="button-box">
+            <button class="btn next-btn" (click)="inactiveServiceInfo()">Yes</button>
+            <button (click)="CloseServicePopup()" class="btn cancel-btn ms-3">No</button>
+          </div>
+        </p-dialog>
+        <div class="button-box">
+          <button *ngIf="!showEdit" class="btn next-btn" (click)="saveServiceInfo()">Next</button>
+          <button *ngIf="showEdit" class="btn next-btn" (click)="cancelInfo()">Save</button>
+          <button (click)="cancelInfo()" class="btn cancel-btn ms-3">Cancel</button>
+        </div>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel [selected]="selectedTab === 3" header="Contact Information" [disabled]="showContactInformation"
+      class="contact-information">
+
+      <ng-template pTemplate="header">
+        <span>Contact Information</span>
+        <i class="position-relative"><img src="../../../../assets/img/blue-tick.svg" alt=""></i>
+      </ng-template>
+      <div class="service-info">
+        <div class="service-top">
+          <div class="service-header" *ngIf="ViewData">
+            <img *ngIf="Clientphoto!=null" src="{{Clientphoto}}" alt="" />
+            <img *ngIf="Clientphoto==null" src="../../../../assets/img/NoImage.png" alt="" />
+            <h3 class="mb-0" *ngIf="ViewData">
+              {{ViewData.firstName}} {{ViewData.lastName}}<br /><span>{{ViewData.gender=='M'? "Male" : "Female"}},
+                {{ViewData.age}} year</span>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!showContactForm">
+        <h4 class="mt-lg-4 mb-lg-3">Add Contact</h4>
+        <form class="contact-form" [formGroup]="clientContactInfoForm" #f="ngForm" *ngIf="contactShow"
+          (keydown.enter)="$event.preventDefault()">
+          <div class="row">
+            <div class="col-4 pb-4 pe-3">
+              <label class="block">First Name<span class="blue-star">*</span></label>
+              <input type="text" pInputText class="form-control" required formControlName="FirstName" name="firstName"
+                placeholder="First Name" />
+              <div *ngIf="FirstName.dirty && FirstName.touched">
+                <small *ngIf="FirstName.errors?.required" class="text-danger">First Name is required</small>
+              </div>
+              <div *ngIf="
+                (FirstName.invalid &&
+                  (FirstName.dirty || FirstName.touched)) ||
+                (submittedContact && FirstName.invalid)
+              " class="msgError">
+                <small class="text-danger" *ngIf="FirstName.errors?.required">
+                  First Name is Required.
+                </small>
+              </div>
+            </div>
+
+            <div class="col-4 pb-4 px-3">
+              <label class="block">Last Name<span class="blue-star">*</span></label>
+              <input type="text" pInputText class="form-control" required formControlName="LastName" name="lastName"
+                placeholder="Last Name" />
+              <div *ngIf="
+                (LastName.invalid &&
+                  (LastName.dirty || LastName.touched)) ||
+                (submittedContact && LastName.invalid)
+              " class="msgError">
+                <small *ngIf="LastName.errors?.required" class="text-danger">Last Name is required</small>
+              </div>
+            </div>
+
+            <div class="col-4 pb-4 ps-3">
+              <label class="block">Relationship<span class="blue-star">*</span></label>
+              <input type="text" required pInputText class="form-control" formControlName="Relationship" name="relation"
+                placeholder="Relation" />
+              <div *ngIf="(Relationship.invalid &&(Relationship.dirty || Relationship.touched)) ||
+                (submittedContact && Relationship.invalid)" class="msgError">
+                <small *ngIf="Relationship.errors?.required" class="text-danger">Relationship is required</small>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 pb-4 pe-3">
+              <label class="block">Address<span class="blue-star">*</span></label>
+              <input type="text" required pInputText class="form-control" formControlName="address" name="addressLine1"
+                placeholder="Address Line 1" />
+              <div *ngIf="(address.invalid &&(address.dirty || address.touched)) ||
+                (submittedContact && address.invalid)" class="msgError">
+                <small *ngIf="address.errors?.required" class="text-danger">Address is required</small>
+              </div>
+            </div>
+            <div class="col-4 pb-4 px-3">
+              <label class="block">Address Line 2</label>
+              <input type="text" pInputText class="form-control" formControlName="AddressLine2" name="addressLine2"
+                placeholder="Address Line 2" />
+            </div>
+            <div class="col-4 pb-4 ps-3">
+              <label class="block">State<span class="blue-star">*</span></label>
+              <p-dropdown [options]="statelst" optionLabel="name" formControlName="ContactState"
+                placeholder="Select State">
+              </p-dropdown>
+              <div *ngIf="(ContactState.invalid &&(ContactState.dirty || ContactState.touched)) ||
+              (submittedContact && ContactState.invalid)" class="msgError">
+                <small *ngIf="ContactState.errors?.required" class="text-danger">State is required</small>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 pb-4 pe-3">
+              <label class="block">City<span class="blue-star">*</span></label>
+              <input type="text" required pInputText class="form-control" formControlName="City" />
+              <div *ngIf="(City.invalid &&(City.dirty || City.touched)) ||
+              (submittedContact && City.invalid)" class="msgError">
+                <small *ngIf="City.errors?.required" class="text-danger">City is required</small>
+              </div>
+            </div>
+            <div class="col-4 pb-4 px-3">
+              <label class="block">Zip<span class="blue-star">*</span></label>
+              <input type="text" digitonly maxlength="6" required pInputText class="form-control" formControlName="Zip"
+                name="addressLine1" />
+              <div *ngIf="(Zip.invalid &&(Zip.dirty || Zip.touched)) ||
+              (submittedContact && Zip.invalid)" class="msgError">
+                <small *ngIf="Zip.errors?.required" class="text-danger">Zip is required</small>
+              </div>
+            </div>
+
+            <div class="col-4 pb-4 ps-3">
+              <label class="block">Speciality<span class="blue-star">*</span></label>
+              <input type="text" required pInputText class="form-control" formControlName="Speciality" name="Speciality"
+                placeholder="Speciality" />
+              <div *ngIf="(Speciality.invalid &&(Speciality.dirty || Speciality.touched)) ||
+              (submittedContact && Speciality.invalid)" class="msgError">
+                <small *ngIf="Speciality.errors?.required" class="text-danger">Speciality is required</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4 pb-4 pe-3">
+              <label class="block">Agency<span class="blue-star">*</span></label>
+              <input type="text" required pInputText class="form-control" formControlName="Agency" name="Agency"
+                placeholder="Agency" />
+              <div *ngIf="(Agency.invalid &&(Agency.dirty || Agency.touched)) ||
+              (submittedContact && Agency.invalid)" class="msgError">
+                <small *ngIf="Agency.errors?.required" class="text-danger">Agency is required</small>
+              </div>
+            </div>
+
+            <div class="col-4 pb-4 px-3">
+              <label class="block">24 Hour Phone (cont.)</label>
+              <p-inputMask mask="(999) 999-9999" formControlName="HourPhoneNo" placeholder="(___) ___-____">
+              </p-inputMask>
+              <!-- <input
+                type="text"
+                pInputText digitonly
+                class="form-control"
+                formControlName="HourPhoneNo"
+                name="hourPhoneNo"
+                placeholder=""
+                (keyup)="hourPhoneNoFormat($event)"
+              /> -->
+            </div>
+
+            <div class="col-4 pb-4 ps-3">
+              <label class="block">Home Phone</label>
+              <p-inputMask mask="(999) 999-9999" formControlName="HomePhone" placeholder="(___) ___-____"></p-inputMask>
+              <!-- <input
+                type="text" 
+                pInputText digitonly
+                class="form-control"
+                formControlName="HomePhone"
+                name="HomePhone"
+                placeholder=""
+                (keyup)="homePhoneFormat($event)"
+              /> -->
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4 pb-4 pe-3">
+              <label class="block">Cell Phone</label>
+              <p-inputMask mask="(999) 999-9999" formControlName="CellPhone" placeholder="(___) ___-____"></p-inputMask>
+              <!-- <input
+                type="text" 
+                pInputText digitonly
+                class="form-control"
+                formControlName="CellPhone"
+                name="CellPhone"
+                placeholder=""
+                (keyup)="cellPhoneFormat($event)"
+              /> -->
+            </div>
+
+            <div class="col-4 pb-4 px-3">
+              <label class="block">Email<span class="blue-star">*</span></label>
+              <input type="email" pInputText class="form-control" formControlName="Email" name="Email" placeholder="" />
+              <div *ngIf="(Email.invalid &&(Email.dirty || Email.touched)) ||
+              (submittedContact && Email.invalid)" class="msgError">
+                <small *ngIf="Email.errors?.required" class="text-danger">Email is required</small>
+                <small *ngIf="!Email.errors?.required" class="text-danger">
+                  Please enter the correct email, this email not valid.
+                </small>
+              </div>
+            </div>
+
+            <div class="col-4 pb-4 ps-3">
+              <label class="block">Contact Type<span class="blue-star">*</span></label>
+              <p-dropdown [options]="contactTypelst" optionLabel="name" formControlName="ContactType"
+                placeholder="Select Contact Type">
+              </p-dropdown>
+              <div *ngIf="(ContactType.invalid &&(ContactType.dirty || ContactType.touched)) ||
+              (submittedContact && ContactType.invalid)" class="msgError">
+                <small *ngIf="ContactType.errors?.required" class="text-danger">Contact Type is required</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4 pe-3">
+              <input type="checkbox" style="margin-right: 8px;" formControlName="ContactForEmergency" />
+              <label for="" class="label-light">Contact For Emergency?</label>
+            </div>
+          </div>
+
+          <!-- <div class="divider"></div> -->
+          <div class="listing-actions col-sm-12 mt-5">
+            <div class="btn-action-group col-sm-12 text-right">
+              <button pbutton="" pripple="" type="button"
+                class="p-element btn btn-block btn-primary p-button me-3 px-4 p-component save"
+                (click)="saveClientContactInfo(clientContactInfoForm)">
+                Save
+              </button>
+              <button pbutton="" pripple="" type="button"
+                class="p-element p-button-secondary btn btn-block btn-default px-3 p-button p-component close"
+                (click)="cancelInfo()">
+                Cancel
+              </button>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-4">
+              <button
+                pbutton=""
+                pripple=""
+                type="button"
+                class="btn next-btn"
+                (click)="saveClientContactInfo(clientContactInfoForm)"             
+              >
+                Save
+              </button>
+              &nbsp;
+              <button
+                pbutton=""
+                pripple=""
+                type="button"
+                class="btn cancel-btn ms-3"
+                (click)="cancelInfo()"
+              >
+                Cancel
+              </button>
+            </div>
+          </div> -->
+        </form>
+      </div>
+
+      <div class="card" *ngIf="showContactForm">
+        <div class="service-head position-relative">
+          <button class="btn position-absolute contact" (click)="openAddClientPopup()">
+            + Add Another Contact
+          </button>
+          <br />
+          <br />
+        </div>
+        <p-table [value]="ContactList">
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="firstName">First Name <p-sortIcon field="firstName"></p-sortIcon>
+              </th>
+              <th pSortableColumn="lastName">Last Name <p-sortIcon field="lastName"></p-sortIcon>
+              </th>
+              <th pSortableColumn="_24HourPhone">24 Hour Phone <p-sortIcon field="_24HourPhone"></p-sortIcon>
+              </th>
+              <th pSortableColumn="quantity">Client First Name <p-sortIcon field="quantity"></p-sortIcon>
+              </th>
+              <th pSortableColumn="contactTypeId">Contact Type <p-sortIcon field="contactTypeId"></p-sortIcon>
+              </th>
+              <th class="text-center">Action</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-ContactList>
+            <tr>
+              <td>{{ContactList.firstName}}</td>
+              <td>{{ContactList.lastName}}</td>
+              <td>{{ContactList._24HourPhone}}</td>
+              <td>{{ClientProfileName}}</td>
+              <td *ngIf="ContactList.contactTypeId==1">Conservator</td>
+              <td *ngIf="ContactList.contactTypeId==2">Independent Support Coordinator</td>
+              <td *ngIf="ContactList.contactTypeId==3">Advocate</td>
+              <td *ngIf="ContactList.contactTypeId==4">Family Member</td>
+              <td *ngIf="ContactList.contactTypeId==5">Primary Care Physician</td>
+              <td *ngIf="ContactList.contactTypeId==6">Secondary Care Physician</td>
+              <td *ngIf="ContactList.contactTypeId==7">Psychiatrist</td>
+              <td *ngIf="ContactList.contactTypeId==8">Nurse</td>
+              <td *ngIf="ContactList.contactTypeId==9">Dentist</td>
+              <td *ngIf="ContactList.contactTypeId==10">Other Specialist</td>
+              <td *ngIf="ContactList.contactTypeId==11">Behavior Analyst</td>
+              <td *ngIf="ContactList.contactTypeId==12">BSTN Manager</td>
+              <td *ngIf="ContactList.contactTypeId==13">Residential Agency</td>
+              <td *ngIf="ContactList.contactTypeId==14">Pharmacy</td>
+              <td *ngIf="ContactList.contactTypeId==15">Outcome Manager</td>
+              <td class="text-center">
+                <a href="javascript:void(0)" (click)="editContact(ContactList)" pTooltip="Edit Contact"
+                  tooltipPosition="top">
+                  <div class="d-inline-block"><img src="../../../../assets/img/Pencil-blue.svg" alt=""></div>
+
+                </a>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+        <div class="divider mt-lg-5"></div>
+        <div class="row">
+          <div class="col-4 mt-lg-2">
+            <button pbutton="" pripple="" type="button" class="btn next-btn" (click)="cancelInfo()">
+              Submit
+            </button>
+            <!-- &nbsp;
+              <button pbutton="" pripple="" type="button" class="btn cancel-btn ms-3" (click)="cancelInfo()">
+                Cancel
+              </button> -->
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+
+  <p-dialog header="{{ServicetypeHeader}}" [(visible)]="displayPosition" [position]="position" [modal]="true"
+    [style]="{ width: '450px', height: '100vh', maxHeight: 'none' }" [baseZIndex]="10000" [draggable]="false"
+    [resizable]="false" class="add-service">
+    <div class="row add-dialog edit-form">
+      <app-client-add-services [showActions]="false" [selectedItems]="selectedItems"></app-client-add-services>
+      <!-- <div class="divider"></div> -->
+      <div class="listing-actions col-sm-12">
+        <div class="btn-action-group col-sm-12 text-right">
+          <button pbutton="" pripple="" type="button"
+            class="p-element p-button-info btn btn-block btn-sm me-3 px-4 p-button p-component save"
+            (click)="saveService()">
+            Save
+          </button>
+          &nbsp;
+          <button pbutton="" pripple="" type="button"
+            class="p-element p-button-secondary btn btn-block btn-sm px-3 p-button p-component close"
+            (click)="cancelDetails()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </p-dialog>
+
+
+  <p-dialog header="{{servTypeCaption}}" [(visible)]="displayPosition1" [position]="position" [modal]="true"
+    [style]="{ width: '450px', height: '100vh', maxHeight: 'none' }" [baseZIndex]="10000" [draggable]="false"
+    [resizable]="false" class="popup-screen">
+    <div class="row add-dialog edit-form">
+      <app-add-client-behavior [showActions]="false" [selectedItems1]="selectedItems1"></app-add-client-behavior>
+      <div class="listing-actions col-sm-12">
+        <div class="btn-action-group col-sm-12 text-right">
+          <button pbutton="" pripple="" type="button"
+            class="p-element p-button-info btn btn-block btn-sm me-3 px-4 p-button p-component save"
+            (click)="UpdateService()">
+            Save
+          </button>
+          &nbsp;
+          <button pbutton="" pripple="" type="button"
+            class="p-element p-button-secondary btn btn-block btn-sm px-3 p-button p-component close"
+            (click)="cancelDetails()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </p-dialog>
+
+
+
+  <p-dialog header="Add New Contact" [(visible)]="displayPosition2" [position]="position" [modal]="true"
+    [style]="{ width: '450px', height: '100vh', maxHeight: 'none' }" [baseZIndex]="10000" [draggable]="false"
+    [resizable]="false" class="popup-screen">
+    <div class="row add-dialog edit-form">
+      <app-add-contact-client [showActions]="false" (closePopup)="closepopup($event)" [selectedItems2]="selectedItems2">
+      </app-add-contact-client>
+      <div>
+
+      </div>
+    </div>
+  </p-dialog>
+
+
+
+
+  <p-dialog *ngIf="showContactForm" header="Add New Contact" [(visible)]="displayPosition2" [position]="position"
+    [modal]="true" [style]="{ width: '450px', height: '100vh', maxHeight: 'none' }" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false" class="popup-screen">
+    <div class="row add-dialog edit-form">
+      <app-add-contact-client [showActions]="false" [selectedItems2]="selectedItems2" (closePopup)="closepopup($event)">
+      </app-add-contact-client>
+      <!-- <div class="listing-actions col-sm-12">
+          <div class="btn-action-group col-sm-12 text-right">
+            <button pbutton="" pripple="" type="button"
+              class="p-element p-button-info btn btn-block btn-sm me-3 px-4 p-button p-component save"
+              (click)="saveContact()">
+              Save
+            </button>
+            &nbsp;
+            <button pbutton="" pripple="" type="button"
+              class="p-element p-button-secondary btn btn-block btn-sm px-3 p-button p-component close"
+              (click)="cancelDetails()">
+              Cancel
+            </button>
+          </div>
+        </div> -->
+    </div>
+  </p-dialog>

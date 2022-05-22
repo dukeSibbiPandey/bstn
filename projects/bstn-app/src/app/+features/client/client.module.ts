@@ -34,6 +34,7 @@ import { BowelTrackComponent } from './components/client-profile/bowel-track/bow
 import { SliderModule } from 'primeng/slider';
 import { SidebarModule } from 'primeng/sidebar';
 import { AddClientBehaviorComponent } from './components/client-form/add-client-behavior/add-client-behavior.component';
+import { AddClientContactComponent } from './components/client-form/add-client-contact/add-client-contact.component';
 @NgModule({
   declarations: [
     ClientComponent,
@@ -52,6 +53,7 @@ import { AddClientBehaviorComponent } from './components/client-form/add-client-
     ClientProfileServicesComponent,
     BowelTrackComponent,
     AddClientBehaviorComponent,
+    AddClientContactComponent
   ],
   imports: [
     CommonModule,
