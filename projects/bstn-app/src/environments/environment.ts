@@ -2,7 +2,9 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const BASEURL = '';
+export const BASEURL = 'https://bstnclient.skdedu.in/api';
+//export const BASEURL = 'http://localhost:53115/api';
+
 export const environment = {
   production: false,
   BASE_URL: BASEURL,

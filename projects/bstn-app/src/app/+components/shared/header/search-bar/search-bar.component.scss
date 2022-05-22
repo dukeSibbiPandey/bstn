@@ -1,0 +1,48 @@
+.input-box {
+  width: 53rem;
+  height: 32px;
+  background: #365d85;
+  border-radius: 4px;
+}
+
+.input-box input {
+  margin-top: 3px;
+  background: none;
+  border: none;
+  width: 96%;
+}
+
+.input-box img {
+  margin-left: 10px;
+  margin-top: -6px;
+  margin-right: 6px;
+}
+
+.input-box input::placeholder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #f2f2f2;
+  opacity: 0.4;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .input-box {
+    width: 30rem;
+  }
+
+  .input-box input {
+    width: 92%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .input-box {
+    width: 14rem;
+  }
+
+  .input-box input {
+    width: 82%;
+  }
+}

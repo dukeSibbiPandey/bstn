@@ -1,0 +1,41 @@
+.service-box h3 {
+  font-family: 'HelveticaNeue-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #212529;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+.service-box h3 img {
+  margin-right: 4px;
+  margin-top: -8px;
+}
+
+.service-main .service-content {
+  margin-top: 8px;
+}
+
+.service-box .service-content img {
+  height: 40px;
+}
+
+.service-box .service-content h3 {
+  font-family: 'HelveticaNeue-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #212529;
+  margin-top: 24px;
+}
+
+.service-box {
+  height: 148px;
+  background: #f0f1f2;
+  border: 1px solid #aeb3b7;
+  box-sizing: border-box;
+  border-radius: 3px;
+}

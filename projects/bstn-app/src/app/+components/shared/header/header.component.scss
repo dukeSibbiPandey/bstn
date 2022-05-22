@@ -1,0 +1,142 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.container-fluid {
+  padding: 0;
+  justify-content: unset;
+}
+
+.bg-blue {
+  background-color: #043467 !important;
+}
+
+.profile {
+  i {
+    color: #fff;
+    text-decoration: none;
+    vertical-align: text-top;
+  }
+
+  .profile-icon {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.dropdown-toggle {
+  &:after {
+    margin-top: 10px;
+    vertical-align: top;
+    border-top: 6px solid;
+    border-right: 5px solid transparent;
+    border-bottom: 0;
+    border-left: 5px solid transparent;
+  }
+}
+
+.mainMenu {
+  background: none !important;
+  border: none !important;
+  margin: 0 11px 0 10px;
+}
+
+.p-sidebar-content {
+  font-size: 16px;
+}
+
+.navbar-brand {
+  margin-right: 6%;
+
+  img {
+    vertical-align: top;
+    margin-top: 5px;
+  }
+}
+
+.profile {
+  margin-left: auto;
+  margin-right: 1%;
+}
+
+.profile .p-menubar {
+  padding: 0.5rem;
+  background: transparent !important;
+  color: #fff !important;
+  border: 0px solid #dee2e6 !important;
+  border-radius: 3px;
+}
+
+.profile .pi-user .p-menuitem-text {
+  color: #fff !important;
+}
+
+.profile .p-menuitem-link {
+  color: #fff;
+}
+
+.profile .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link .p-menuitem-text {
+  color: #fff;
+}
+
+.profile .btn {
+  margin-top: -18px;
+  padding: 0;
+  line-height: 0;
+}
+
+@media screen and (max-width: 425px) {
+  .mainMenu {
+    margin: 0 0 0 2px;
+    padding: 0;
+  }
+
+  .navbar-brand {
+    padding: 0 !important;
+    line-height: 0;
+  }
+
+  .profile .btn {
+    margin-top: -8px;
+  }
+}
+
+.profileDetail {
+  padding: 14px 15px;
+  margin-top: 30px;
+  border-bottom: 1px solid #DEDEDE;
+
+  .col {
+    flex: 1;
+
+    strong {
+      color: #000;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    .btn {
+      background: #1c74d5;
+      border-radius: 4px;
+    }
+  }
+
+  .p-img {
+    margin-right: 15px;
+    max-width: 49px;
+  }
+
+  .employeeImg {
+    img {
+      border-radius: 50%;
+      width: 49px;
+      height: 49px;
+    }
+  }
+}

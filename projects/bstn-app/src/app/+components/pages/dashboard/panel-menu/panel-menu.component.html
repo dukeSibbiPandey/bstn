@@ -1,0 +1,30 @@
+<p-tabView class="openMenuTabs ">
+  <p-tabPanel header="Open Shifts">
+    <app-employee-page-shifts></app-employee-page-shifts>
+  </p-tabPanel>
+  <p-tabPanel header="Schedule" class="scheduleTab commonTab" [selected]="true">
+    <app-employee-page-schedule></app-employee-page-schedule>
+  </p-tabPanel>
+  <p-tabPanel header="Training" class="commonTab">
+    <app-employee-page-training></app-employee-page-training>
+  </p-tabPanel>
+  <p-tabPanel header="Contacts" class="commonTab">
+    <app-employee-page-contacts></app-employee-page-contacts>
+  </p-tabPanel>
+  <p-tabPanel  header="Mails" class="commonTab mail-tab">
+    <ng-template pTemplate="header">
+      <span>Mails</span>
+      <i class="position-relative"><img src="../../../../../assets/img/mail-icon.svg" alt="">
+      <div class="notification-icon position-absolute"><p class="mb-0">1</p></div></i>
+    </ng-template>
+  </p-tabPanel>
+  <p-tabPanel header="Timesheet" class="commonTab">
+    <app-employee-page-timesheet></app-employee-page-timesheet>
+  </p-tabPanel>
+  <p-tabPanel header="Leave" class="commonTab">
+
+  </p-tabPanel>
+  <p-tabPanel header="More" class="commonTab">
+
+  </p-tabPanel>
+</p-tabView>

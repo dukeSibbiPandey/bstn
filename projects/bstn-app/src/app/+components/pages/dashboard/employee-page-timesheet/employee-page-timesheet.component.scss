@@ -1,0 +1,227 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin-bottom: 0;
+}
+
+.timesheet-data .heading {
+  margin-top: 16px;
+}
+
+.timesheet-data .heading p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #6c757d;
+}
+
+.timesheet-data .heading p img {
+  margin-top: -5px;
+  margin-right: 5px;
+}
+
+.timesheet-main {
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.timesheet-main .main-head {
+  height: 50px;
+  padding: 16px 0 0 32px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.timesheet-main .main-head .set-date {
+  margin-right: 12px;
+  float: right;
+}
+
+.timesheet-main .main-head .set-date button {
+  margin-top: -6px;
+}
+
+.timesheet-main .main-head h3 {
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #212529;
+}
+
+.btn {
+  line-height: 0;
+}
+
+.timesheet-main .timing-details {
+  height: 90px;
+  padding: 16px;
+}
+
+.timesheet-main .timing-details .timing {
+  border-right: 1px solid #dee2e6;
+}
+
+.timesheet-main .timing-details .timing h5 {
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #212529;
+}
+
+.timesheet-main .timing-details .timing h3 {
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 39px;
+  color: #6c757d;
+}
+
+.border-none {
+  border: none !important;
+}
+
+.timesheet-data .timing-table table tr th:nth-child(1) {
+  border-left: none !important;
+  width: 17%;
+}
+
+.timesheet-data .timing-table table tr td:nth-child(1) {
+  border-left: none !important;
+  padding: 29px 0 24px 0;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.timesheet-data .timing-table table tr th {
+  text-align: center;
+  border-left: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
+  font-family: "HelveticaNeue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #6c757d;
+  padding: 16px 0;
+}
+
+.over-time {
+  line-height: 2.4rem;
+}
+
+.timesheet-data .timing-table table tr td {
+  font-family: "HelveticaNeue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  color: #6c757d;
+  vertical-align: initial;
+  padding: 1% 0 0 1%;
+}
+
+.timesheet-data .timing-table table tr td .week {
+  line-height: 2rem;
+}
+
+.timesheet-data .timing-table table tr td {
+  border-left: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
+}
+
+.week-column {
+  width: 9.4%;
+}
+
+.total-column {
+  width: 8%;
+}
+
+.text-red {
+  font-family: 'HelveticaNeue-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: #FF3131;
+}
+
+.text-green {
+  font-family: 'HelveticaNeue-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: #1CD550;
+}
+
+.text-yellow {
+  font-family: 'HelveticaNeue-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: #FFA031;
+}
+
+.text-blue {
+  font-family: 'HelveticaNeue-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: #1C74D5;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .over-time {
+    line-height: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .timesheet-main .main-head {
+    height: 100%;
+    padding-left: 0px;
+    text-align: center;
+  }
+  
+  .timesheet-main .main-head h3 {
+    display: block !important;
+  }
+  
+  .timesheet-main .main-head .set-date {
+    display: block !important;
+    margin-right: 0;
+    float: unset;
+    margin-bottom: 2%;
+  }
+  
+  .timesheet-main .main-head .set-date button {
+    padding: 0 5px;
+  }
+
+  .over-time {
+    line-height: 0;
+  }
+
+  .timesheet-main .timing-details {
+    height: 100%;
+  }
+  
+  .timesheet-main .timing-details .timing h3 {
+    font-size: 22px;
+  }
+
+  .timesheet-data .timing-table table tr td {
+    padding: 1% 0 0 0;
+    font-size: 12px;
+  }
+}

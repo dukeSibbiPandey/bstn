@@ -1,0 +1,404 @@
+.container-fluid {
+  padding: 0 3rem;
+}
+
+.divider {
+  background: #dadada;
+  height: 1px;
+  width: 100%;
+  clear: both;
+  margin: 10px 0;
+}
+
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  background: #fff;
+}
+
+.p-datatable .p-datatable-header {
+  background: none;
+}
+
+.dropbtn {
+  background-color: #0288d1;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  margin-left: 24px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 230px;
+  z-index: 999;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  right: 0;
+  top: 41px;
+  transform-origin: center top;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #0288d1;
+}
+
+#exportword:hover {
+  background-color: #ebeff3 !important;
+}
+
+#exportcsv:hover {
+  background-color: #ebeff3 !important;
+}
+
+#exportexcel:hover {
+  background-color: #ebeff3 !important;
+}
+
+#exportpdf:hover {
+  background-color: #ebeff3 !important;
+}
+
+thead tr th {
+  width: 100px;
+}
+
+thead tr td {
+  width: 100px;
+}
+
+thead tr th:nth-child(7) {
+  width: 160px !important;
+}
+
+tbody tr td:nth-child(7) {
+  width: 160px !important;
+}
+
+.content-wrapper {
+  padding: 0px 50px;
+}
+
+.addnewClient.p-button {
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 10px 17px;
+  border: none;
+  background: #1c74d5;
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.466667px;
+  color: #ffffff;
+}
+
+.exportBtn {
+  width: 41px;
+  height: 41px;
+  background: #dbe9f8 url(../../../../assets/img/exportIcon.png) no-repeat center center !important;
+}
+
+.customiseBtn {
+  width: 41px;
+  height: 41px;
+  background: #dbe9f8 url(../../../../assets/img/columnIcon.png) no-repeat center center !important;
+}
+
+.p-multiselect .p-multiselect-panel {
+  min-width: 100%;
+  margin-left: -55px !important;
+}
+
+.save {
+  background: #1c74d5;
+  border-radius: 4px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-div {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background: white;
+  z-index: 1000;
+  text-align: center;
+  align-items: center;
+}
+
+.export-as {
+  width: 100%;
+  position: relative;
+
+  a {
+    width: 100%;
+    padding-left: 40px;
+    padding-left: 55px;
+    font-family: "HelveticaNeue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #343a40;
+  }
+
+  input {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.custom-layout {
+  height: 240px;
+  overflow: auto;
+
+  a {
+    padding-left: 33px;
+  }
+
+  input {
+    left: 13px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.export-title {
+  padding: 12px 18px;
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #212529;
+}
+
+.exportfileBtn {
+  padding: 15px;
+  border-top: 1px solid #dee2e6;
+
+  a {
+    background: #1c74d5;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 16px;
+    display: inline-block;
+  }
+}
+
+#exportcsv {
+  background-image: url(../../../../assets/img/CsvIcon.svg);
+  background-repeat: no-repeat;
+  background-position: 34px 14px;
+}
+
+#exportword {
+  background-image: url(../../../../assets/img/WordIcon.png);
+  background-repeat: no-repeat;
+  background-position: 34px 14px;
+}
+
+#exportexcel {
+  background-image: url(../../../../assets/img/ExcelIcon.png);
+  background-repeat: no-repeat;
+  background-position: 34px 14px;
+}
+
+#exportpdf {
+  background-image: url(../../../../assets/img/PdfIcon.png);
+  background-repeat: no-repeat;
+  background-position: 34px 14px;
+}
+
+.p-frozen-column {
+  a {
+    text-decoration: none;
+
+    strong {
+      color: #1c74d5;
+    }
+  }
+}
+
+.dropdown-download:hover {
+  .tooltiptext {
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.exportBtn {
+  &:hover {
+    background-blend-mode: color-dodge;
+    background-color: #1c74d5 !important;
+  }
+}
+
+.customiseBtn {
+  &:hover {
+    background-blend-mode: color-dodge;
+    background-color: #1c74d5 !important;
+  }
+}
+
+.printData {
+  &:hover {
+    background-blend-mode: color-dodge;
+    background-color: #1c74d5 !important;
+
+    .tooltiptext {
+      opacity: 1;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+.column-selection {
+  &:hover {
+    .tooltiptext {
+      opacity: 1;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+/* Tooltip text */
+.tooltiptext {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  padding: 3px 7px;
+  position: absolute;
+  z-index: 100;
+  top: -80%;
+  text-align: center;
+  font-family: "HelveticaNeue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  color: #ffffff;
+  background: #000000;
+  border-radius: 3px;
+
+  &::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000000 transparent transparent transparent;
+  }
+}
+
+.left-N50 {
+  left: -50%;
+}
+
+.active-status {
+  background-color: green;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 1px 10px;
+  font-family: "HelveticaNeue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.inactive-status {
+  background-color: rgba(108, 117, 125, 0.5);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 1px 10px;
+  font-family: "HelveticaNeue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+
+.edit-Button {
+  background: rgba(28, 116, 213, 0.16);
+  border-radius: 40px;
+  height: 24px;
+  width: 24px;
+  text-align: center;
+
+  img {
+    vertical-align: text-bottom;
+  }
+
+  &:hover {
+    background: #1c74d5;
+
+    img {
+      filter: invert(99%) sepia(0%) saturate(4%) hue-rotate(181deg) brightness(200%) contrast(100%);
+    }
+  }
+}
+
+.listing-actions {
+  border-top: 1px solid #DEE2E6;
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 16px 28px;
+  // width: calc(100% + 16px);
+  // max-width: calc(100% + 16px);
+  // margin: 0 -16px;
+}
+
+.p-button.p-button-secondary {
+  background: #6C757D;
+}

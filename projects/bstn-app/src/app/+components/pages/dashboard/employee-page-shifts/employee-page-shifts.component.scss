@@ -1,0 +1,96 @@
+.shift-heading {
+  margin-top: 16px;
+}
+
+.shift-heading h1 {
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #212529;
+}
+
+.shift-detail {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.shift-detail .shift-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.shift-detail .shift-header button {
+  padding: 0 12px;
+  line-height: 0;
+  margin-top: -5px;
+}
+
+.shift-detail .shift-header .month {
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #212529;
+  margin-bottom: 0;
+}
+
+.shift-detail .shift-header .week p {
+  font-family: "HelveticaNeue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.shift-detail .shift-table table {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+}
+
+.shift-detail .shift-table table tr th {
+  font-family: "HelveticaNeue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #6c757d;
+}
+
+.shift-detail .shift-table table tr td {
+  font-family: "HelveticaNeue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+}
+
+@media screen and (max-width: 425px) {
+  .shift-detail .shift-header .month {
+    text-align: center;
+    margin-bottom: 2% !important;
+  }
+
+  .shift-detail .shift-header button {
+    padding: 0;
+  }
+
+  .shift-detail .shift-header .week p {
+    margin: 0 2%;
+  }
+
+  .shift-detail .shift-table table tr th {
+    padding: 1%;
+  }
+
+  .shift-detail .shift-table table tr td {
+    padding: 1%;
+  }
+}

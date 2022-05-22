@@ -1,6 +1,6 @@
-export const BASEURL = '';
+export const BASEURL = 'https://bstnclient.skdedu.in/api';
 export const environment = {
-  production: true,
+  production: false,
   BASE_URL: BASEURL,
-  hostUrl: ``
+  hostUrl: `https://bstnpal.skdedu.in`
 };

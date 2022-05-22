@@ -1,0 +1,152 @@
+.login-input-div {
+  height: 932px;
+}
+
+.input-box {
+  height: 405px;
+  top: 263px;
+  // left: 176px;
+  left: 23%;
+  width: 416px;
+}
+
+.logo-title p {
+  font-family: 'HelveticaNeue-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #212529;
+  padding-top: 2px;
+}
+
+.logo-title button {
+  width: 100px;
+}
+
+.logo-title .logo-box {
+  border-right: 2px solid #dee2e6;
+}
+
+.logo-title .logo-head {
+  height: 26px;
+}
+
+.main-heading {
+  margin-top: 44px;
+}
+
+.main-heading p {
+  font-family: 'HelveticaNeue-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #212529;
+}
+
+.user-input {
+  margin-top: 40px;
+}
+
+.user-input p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #343a40;
+}
+
+.user-input input {
+  border: 1px solid #ced4da;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 416px;
+  padding: 7px 12px;
+}
+
+.user-input input::placeholder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #6c757d;
+}
+
+.forgot-text p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: right;
+  color: #1c74d5;
+}
+
+.login-image-div {
+  height: 932px;
+  background: #1c74d5;
+}
+
+.login-img-box {
+  mix-blend-mode: hard-light;
+  width: 100%;
+  height: 694px;
+  top: 123px;
+}
+
+.row {
+  --bs-gutter-x: 0 !important;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .login-input-div {
+    height: 820px;
+  }
+  
+  .login-image-div {
+    height: 820px;
+    background: #1c74d5;
+  }
+
+  .login-img-box {
+    top: 67px;
+  }
+
+  .input-box {
+    top: 150px;
+    left: 14%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .logo-box {
+    width: 18%;
+  }
+
+  .logo-head {
+    width: 80%;
+  }
+
+  .input-box {
+    top: 45px;
+    left: 10%;
+    width: 332px;
+  }
+
+  .login-image-div {
+    height: 514px;
+  }
+
+  .login-input-div {
+    height: 530px;
+  }
+
+  .user-input input {
+    width: 328px;
+  }
+
+  .login-img-box {
+    height: 100%;
+    top: 0;
+  }
+}

@@ -1,1 +1,61 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+  <!-- <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+    </li>
+
+  </ul> -->
+  <div class="container-fluid align-items-center nav-div">
+    <button class="mainMenu" #btn type="button" pButton icon="pi pi-bars" (click)="visibleSidebar1 = true"></button>
+    <a class="navbar-brand" href="#"><img src="../../assets/img/✏️ Logo.png" alt="Logo" /></a>
+    <!-- <app-header-search class="col-7"></app-header-search> -->
+    <app-search-bar class="mx-auto"></app-search-bar>
+
+    <div class="profile">
+      <button class="btn"><img src="../../../../assets/img/bell-icon.svg" alt=""></button>
+      <!-- <a href="#" class="notification mx-3">
+        <i class="bi bi-bell"></i>
+      </a>
+      <a class="dropdown-toggle profile-icon" href="#" id="navbarDropdownMenuLink" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="m-2"><img src="../../assets/img/userPic.png" class="rounded-circle" height="22" alt=""
+            loading="lazy" /></span>
+        <span>{{UserName}}({{local}})</span>
+      </a>
+      <button name="Logout" class="btn btn-primary" (click)="logOut();">Logout</button> -->
+      <p class="d-none">{{name}}</p>
+      <p-menubar *ngIf="items1 && items1.length>0" class="d-inline-block dropdownMenu" [model]="items1">
+
+      </p-menubar>
+      <p-menubar *ngIf="UserName" class="d-inline-block" [model]="items2">
+
+      </p-menubar>
+    </div>
+  </div>
+</nav>
+
+
+
+<p-sidebar class="sidebar--content" [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+  <h6>Main Menu</h6>
+
+  <div class="profileDetail">
+    <div class="row">
+      <div class="col p-img">
+        <div class="employeeImg">
+          <img _ngcontent-ttx-c68="" src="../../../../assets/img/employee-img.png" alt="Employee">
+        </div>
+      </div>
+      <div class="col">
+        <strong>Carl A. Glenn</strong>
+        <p>Administrative Or Managerial Staff <br />
+          Chief Executive Officer</p>
+
+        <a class="btn btn-primary" href="#">My Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+
+  <p-slideMenu [model]="items" [viewportHeight]="600"></p-slideMenu>
+</p-sidebar>

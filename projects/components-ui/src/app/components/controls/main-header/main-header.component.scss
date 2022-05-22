@@ -1,0 +1,27 @@
+.container-fluid{
+    padding: 0 3rem;
+}
+.bg-blue{
+    background-color: #043467 !important;
+}
+.profile{
+    i{
+        color: #fff;
+        text-decoration: none;
+        vertical-align: text-top;
+    }
+    .profile-icon{
+        color: #fff;
+        text-decoration: none;
+    }
+}
+.dropdown-toggle{
+    &:after{
+        margin-top: 10px;
+        vertical-align: top;
+        border-top: 6px solid;
+        border-right: 5px solid transparent;
+        border-bottom: 0;
+        border-left: 5px solid transparent;
+    }
+}

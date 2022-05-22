@@ -1,0 +1,170 @@
+body {
+  background-color: #e5e5e5 !important;
+}
+
+.top-heading {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #1c74d5;
+  margin: 8px 0 15px 0;
+}
+
+.top-heading span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #6c757d;
+}
+
+.top-heading .client-name {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #212529;
+}
+
+.client-info {
+  // height: 240px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  box-sizing: border-box;
+  border-radius: 4px 4px 0 0;
+}
+
+.client-info button a {
+  text-decoration: none;
+}
+
+.client-info button img {
+  margin-top: -6px;
+}
+
+.client-image {
+  width: 152px;
+}
+
+.client-image img {
+  border-radius: 50%;
+  left: 30px;
+  top: -12px;
+}
+
+.client-info .client-details {
+  border-right: 2px solid #dee2e6;
+}
+
+.client-info .client-details h3 {
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 23px;
+  color: #212529;
+  margin-bottom: 8px;
+}
+
+.client-info .client-details h4 {
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  color: #212529;
+  margin-bottom: 16px;
+}
+
+.client-info .client-details .client-address p {
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #212529;
+  margin-bottom: 8px;
+  // margin-left: 8px;
+}
+
+.client-info .client-details .client-contact p {
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #212529;
+  margin-bottom: 6px;
+  // margin-left: 6px;
+}
+
+.client-info .client-details .client-contact .second-p {
+  margin-left: 22px;
+}
+
+.client-info .client-details span {
+  color: #6c757d;
+}
+
+.client-info .client-numbers {
+  padding-top: 15px;
+  padding-left: 48px;
+}
+
+.client-info .client-numbers h3 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #343a40;
+  margin-bottom: 8px;
+}
+
+.client-info .client-numbers p {
+  font-family: "HelveticaNeue-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #212529;
+}
+
+.client-info .client-numbers p img {
+  margin-left: 16px;
+  margin-right: 6px;
+}
+
+.client-info .client-numbers p span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #6c757d;
+  margin-left: 16px;
+}
+
+.client-info .client-numbers .phone-number {
+  margin-bottom: 32px;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .client-info {
+    height: 100%;
+  }
+
+  .client-details {
+    margin-top: 1rem;
+  }
+
+  .client-info .client-numbers {
+    padding-left: 34px;
+    margin-bottom: 15px;
+  }
+
+  .client-info .client-details {
+    border: none;
+  }
+}
+
+@media screen and (max-width: 425px) {}

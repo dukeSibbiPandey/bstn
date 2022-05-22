@@ -1,0 +1,114 @@
+
+<div class="form-wrapper form-group">
+    <div class="row">
+        
+        <div class="col-sm-12" >
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">First Name</label>
+                <input type="text" class="form-control"  placeholder="First Name" [(ngModel)]="selectedItems.firstName">
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">Last Name</label>
+                <input type="text" class="form-control"   placeholder="Last Name" [(ngModel)]="selectedItems.lastName">
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">Relationship</label>
+                <input type="text" class="form-control"   placeholder="Relationship" [(ngModel)]="selectedItems.relationship">
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">Address*</label>
+                <input type="text" class="form-control"   placeholder="Address Line 1" [(ngModel)]="selectedItems.address">
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">Address Line 2</label>
+                <input type="text" class="form-control"   placeholder="Address Line 2" [(ngModel)]="selectedItems.addressLine2">
+            </div>
+        </div>
+       
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">City</label>                
+                <p-dropdown style="width: 435px;"  placeholder="Select City"  [options]="cityList" [(ngModel)]="selectedItems.city" optionLabel="label"
+                ></p-dropdown>  
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">State</label>               
+                <p-dropdown  [options]="stateList" placeholder="Select State" [(ngModel)]="selectedItems.state" optionLabel="label"
+                ></p-dropdown>  
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">Zip</label>
+                <p-dropdown  [options]="zipCodeList" placeholder="Select Zip" [(ngModel)]="selectedItems.zip" optionLabel="label"
+                ></p-dropdown>  
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">Specialty*</label>
+                <input type="text" class="form-control"  placeholder="Specialty"  [(ngModel)]="selectedItems.specialty">
+               
+
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">24 Hour Phone(cont.)</label>
+                <input  type="text" class="form-control"  [(ngModel)]="selectedItems.hourphone">
+               
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">Home Phone</label>
+                <input type="text" class="form-control"   [(ngModel)]="selectedItems.homePhone">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">Cell Phone</label>
+                <input type="text" class="form-control"   [(ngModel)]="selectedItems.cellPhone">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">Email</label>
+                <input type="text" class="form-control"   [(ngModel)]="selectedItems.email">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="" class="label-light text-uppercase">Contact Type*</label>                
+                <p-dropdown style="width: 435px;"  placeholder="Select Contact Type"  [options]="cityList" [(ngModel)]="selectedItems.contactType" optionLabel="label"
+                ></p-dropdown>  
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <input type="checkbox"   [(ngModel)]="selectedItems.contactForEmergency">
+                <label for="" class="label-light text-uppercase">Contact For Emergency?</label>                
+               
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="divider"></div>
+
+

@@ -1,0 +1,184 @@
+<div class="form-wrapper form-group">
+  <div class="row">
+
+    <div class="col-sm-12" id="divBilling">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Billing Type</label>
+        <input type="text" class="form-control" (change)="Validate($event,1)" placeholder="Billing Type"
+          [(ngModel)]="selectedItems.billingType" optionLabel="label">
+        <small id="Billing" class="text-danger"></small>
+
+      </div>
+    </div>
+    <div class="col-sm-12" id="divServicetype">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light ">Service Type</label>
+        <p-dropdown [options]="serviceTypes" placeholder="Select Service Type" [(ngModel)]="selectedItems.serviceType"
+          optionLabel="label" (onChange)="serviceTypeChange($event)"></p-dropdown>
+        <small *ngIf="serviceTypesIsixt" class="text-danger"> Service Type Already sdded.</small>
+      </div>
+      <small id="idservicetype" class="text-danger"></small>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label class="label-light">Service Requested Date</label>
+        <div class="row m-0">
+          <div class="col-4 p-0">
+            <p-dropdown [options]="DayList" [(ngModel)]="selectedItems.serviceRequestedDay" optionLabel="name"
+              placeholder="Day" class="day-dropdown" (onChange)="serviceRequestedDate($event,'Day')">
+            </p-dropdown>
+            <small id="serviceRequesteD" class="text-danger"></small>
+          </div>
+
+          <div class="col-4 p-0">
+            <p-dropdown [options]="MonthList" [(ngModel)]="selectedItems.serviceRequestedMonth" optionLabel="name"
+              placeholder="Month" class="mon-dropdown" (onChange)="serviceRequestedDate($event,'Month')">
+            </p-dropdown>
+            <small id="serviceRequesteM" class="text-danger"></small>
+          </div>
+
+          <div class="col-4 p-0">
+            <p-dropdown [options]="YearList" [(ngModel)]="selectedItems.serviceRequestedYear" optionLabel="name"
+              placeholder="Year" class="year-dropdown" (onChange)="serviceRequestedDate($event,'Year')">
+            </p-dropdown>
+            <small id="serviceRequesteY" class="text-danger"></small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label class="label-light">Service Approval Date</label>
+        <div class="row m-0">
+          <div class="col-4 p-0">
+            <p-dropdown [options]="DayList" [(ngModel)]="selectedItems.serviceApproveDay" optionLabel="name"
+              placeholder="Day" class="day-dropdown" (onChange)="serviceApprovalDate($event,'Day')">
+            </p-dropdown>
+            <small id="serviceApproveD" class="text-danger"></small>
+
+          </div>
+          <div class="col-4 p-0">
+            <p-dropdown [options]="MonthList" [(ngModel)]="selectedItems.serviceApproveMonth" optionLabel="name"
+              placeholder="Month" class="mon-dropdown" (onChange)="serviceApprovalDate($event,'Month')">
+            </p-dropdown>
+            <small id="serviceApproveM" class="text-danger"></small>
+          </div>
+          <div class="col-4 p-0">
+            <p-dropdown [options]="YearList" [(ngModel)]="selectedItems.serviceApproveYear" optionLabel="name"
+              placeholder="Year" class="year-dropdown" (onChange)="serviceApprovalDate($event,'Year')">
+            </p-dropdown>
+            <small id="serviceApproveY" class="text-danger"></small>
+          </div>
+          <small *ngIf="showInvalidServiceApprovalDate" class="text-danger">
+            Service Approval Date must be Greater than Service Requested Date.</small>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label class="label-light">Service Expiration Date</label>
+        <div class="row m-0">
+          <div class="col-4 p-0">
+            <p-dropdown [options]="DayList" [(ngModel)]="selectedItems.serviceExpirationDay" optionLabel="name"
+              placeholder="Day" class="day-dropdown" (onChange)="serviceExpirationDay($event,'Day')">
+            </p-dropdown>
+            <small id="serviceExpireD" class="text-danger"></small>
+          </div>
+          <div class="col-4 p-0">
+            <p-dropdown [options]="MonthList" [(ngModel)]="selectedItems.serviceExpirationMonth" optionLabel="name"
+              placeholder="Month" class="mon-dropdown" (onChange)="serviceExpirationDay($event,'Month')">
+            </p-dropdown>
+            <small id="serviceExpireM" class="text-danger"></small>
+          </div>
+          <div class="col-4 p-0">
+            <p-dropdown [options]="YearList" [(ngModel)]="selectedItems.serviceExpirationYear" optionLabel="name"
+              placeholder="Year" class="year-dropdown" (onChange)="serviceExpirationDay($event,'Year')">
+            </p-dropdown>
+            <small id="serviceExpireY" class="text-danger"></small>
+          </div>
+          <small *ngIf="showInvalidServiceExpierDate" class="text-danger">
+            Service Expiration Date must be Greater than Service Approval Date.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col-sm-12">
+          <div class="form-group px-lg-3 pt-lg-4">
+              <label for="" class="label-light text-uppercase">Service Requested Date</label>
+              <input type="date" class="form-control"  [(ngModel)]="selectedItems.serviceRequestedDate">
+          </div>
+      </div>
+      <div class="col-sm-12">
+          <div class="form-group px-lg-3 pt-lg-4">
+              <label for="" class="label-light text-uppercase">Service Approval Date</label>
+              <input type="date" class="form-control"   [(ngModel)]="selectedItems.serviceApproveDate">
+          </div>
+      </div>
+      <div class="col-sm-12">
+          <div class="form-group px-lg-3 pt-lg-4">
+              <label for="" class="label-light text-uppercase">Service Expiration Date</label>
+       <input type="date" class="form-control"    [(ngModel)]="selectedItems.serviceExpirationDate"> 
+             
+          </div>
+      </div> -->
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Unit Type</label>
+        <p-dropdown [options]="unitTypes" placeholder="1 Unit = 15 minutes" [(ngModel)]="selectedItems.unitType"
+          optionLabel="label"></p-dropdown>
+
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Unit Number</label>
+        <input type="number" class="form-control" placeholder="Unit number" min="0"
+          [(ngModel)]="selectedItems.unitNumber">
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Client Rate Per Unit</label>
+        <input type="text" class="form-control" (change)="Validate($event,2)"
+          [(ngModel)]="selectedItems.clientRatePerUnit">
+      </div>
+      <small class="text-danger" id="idClientRate"></small>
+
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Unit Approved</label>
+        <input type="text" class="form-control" (change)="Validate($event,3)" [(ngModel)]="selectedItems.unitApproved">
+      </div>
+      <small class="text-danger" id="idunitAproved"></small>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Fund Code</label>
+        <input type="text" class="form-control" (change)="Validate($event,4)" [(ngModel)]="selectedItems.fundCode">
+
+      </div>
+      <small class="text-danger" id="idfundCode"></small>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4">
+        <label for="" class="label-light">Payer Agency</label>
+        <p-dropdown [options]="payerAgencys" (onChange)="Validate($event,5)" placeholder="Select Payer Agency"
+          [(ngModel)]="selectedItems.payerAgency" optionLabel="label"></p-dropdown>
+        <small class="text-danger" id="idpayeragency"></small>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group px-lg-3 pt-lg-4  pb-lg-4">
+        <label for="" class="label-light">Payer Agency Address</label>
+        <input type="text" class="form-control" [(ngModel)]="selectedItems.payerAgencyAddress">
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<p-toast key="clearkToastMsg"></p-toast>

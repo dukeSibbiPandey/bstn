@@ -1,0 +1,40 @@
+<div class="card">
+  <h5>Frozen Columns</h5>
+  <p-table #dt [value]="customers" [columns]="selectedColumns" scrollDirection="both" [scrollable]="true" scrollHeight="400px" styleClass="p-mt-3" styleClass="p-datatable-customers" [rowHover]="true"
+  [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
+  [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [filterDelay]="0" [globalFilterFields]="['name','country.name','representative.name','status']">
+    <ng-template pTemplate="caption">
+      <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
+          selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" placeholder="Choose Columns"><img src="../../../../assets/custom-row.svg" alt=""></p-multiSelect>
+            <div class="p-d-flex">
+              <button type="button" pButton pRipple icon="pi pi-file-o" (click)="dt.exportCSV()" class="p-mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+            </div>
+  </ng-template>
+      <ng-template pTemplate="header" let-columns>
+          <tr>
+              <th style="width:70px" pFrozenColumn>#</th>
+              <th style="width:150px" pFrozenColumn>First Name</th>
+              <th style="width:150px" pFrozenColumn>Name Name</th>
+              <th style="width:150px" *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+            <th style="width:150px">Representative</th>
+            <th style="width:150px" alignFrozen="right" pFrozenColumn [frozen]="balanceFrozen">Balance</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-customer let-columns="columns">
+          <tr>
+            <td style="width:70px" pFrozenColumn>{{customer.id}}</td>
+            <td style="width:150px" pFrozenColumn>{{customer.firstName}}</td>
+            <td style="width:150px" pFrozenColumn>{{customer.lastName}}</td>
+            <td style="width:150px" *ngFor="let col of columns">
+                {{customer[col.field]}}
+            </td>
+            <td style="width:150px">{{customer.representative.name}}</td>
+              <td style="width:150px" alignFrozen="right" pFrozenColumn [frozen]="balanceFrozen">
+                  {{formatCurrency(customer.balance)}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>

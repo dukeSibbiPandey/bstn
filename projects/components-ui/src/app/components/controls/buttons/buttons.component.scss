@@ -1,0 +1,8 @@
+.hide {
+    display: none;
+}
+
+.btn:hover .hide {
+    position: absolute;
+    display: block;
+}
