@@ -4,18 +4,19 @@ import { ClientComponent } from './components/client.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
 import { ClientProfileComponent } from './components/client-profile/client-profile.component';
 import { ClientManageComponent } from './components/client-manage/client-manage.component';
+import { routesConfig } from '../../_constants/routesConfig';
 const routes: Routes = [
   {
     path: '',
     component: ClientComponent,
     children: [
-      { path: '', redirectTo: 'manage-clients', pathMatch: 'full' },
+      { path: '', redirectTo: routesConfig['CLIENT_MANAGE']['routeState'], pathMatch: 'full' },
+      { path: routesConfig['CLIENT_MANAGE']['routeState'], component: ClientManageComponent },
       { path: 'add-new-client', component: ClientFormComponent },
-      { path: 'profile', component: ClientProfileComponent },
+      { path: routesConfig['CLIENT_PROFILE']['routeState'], component: ClientProfileComponent },
       {
-        path: 'profile/:id', component: ClientProfileComponent
-      },
-      { path: 'manage-clients', component: ClientManageComponent }
+        path: routesConfig['CLIENT_PROFILE_ID']['routeState'], component: ClientProfileComponent
+      }
     ]
   }
 ];

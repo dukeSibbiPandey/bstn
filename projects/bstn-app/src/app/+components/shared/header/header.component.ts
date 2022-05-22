@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig, MenuItem } from 'primeng/api';
 import { AuthService } from '../auth.service';
 import { OAuthService } from 'angular-oauth2-oidc';
+import { routesConfig } from '../../../_constants/routesConfig';
 @Component({
    selector: 'app-header',
    templateUrl: './header.component.html',
@@ -117,7 +118,7 @@ export class HeaderComponent implements OnInit {
                {
                   label: 'Manage Clients',
                   icon: 'pi pi-fw pi-user-plus',
-                  routerLink: ['/client/manage'],
+                  routerLink: [routesConfig['CLIENT_MANAGE']['routeParam']],
                   command: () => this.hideSideBar(),
                },
                {
