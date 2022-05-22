@@ -309,10 +309,9 @@ export class AddNewClientComponent implements OnInit {
 
   //   })
   // }
-  SaveFinal() {
+  returnToClientManage = () => {
     this.route.navigate(['/client/manage']);
   }
-
   CloseFinalPopup() {
     if ((this.serviceType == undefined || this.serviceType.length == 0) && this.showEdit == false) {
       this.displayPopupServiceFinal = false;
@@ -337,7 +336,7 @@ export class AddNewClientComponent implements OnInit {
       return false;
     }
     else {
-      this.route.navigate(['/client/manage']);
+      this.returnToClientManage();
     }
   }
 
@@ -843,13 +842,10 @@ export class AddNewClientComponent implements OnInit {
     this._MessageService.add({ key: 'c', sticky: true, severity: 'warn', summary: 'Add Contact', detail: 'Confirm to proceed' });
 
   }
-  onConfirm() {
-    this.route.navigate(['/client/manage']);
-  }
   showConfirm(msg: any) {
     this._MessageService.clear();
     this._MessageService.add({ key: 'c', sticky: true, severity: 'warn', summary: msg, detail: 'Confirm to proceed' });
-    this.route.navigate(['/client/manage']);
+    this.returnToClientManage();
   }
 
   url: string;
@@ -1002,21 +998,12 @@ export class AddNewClientComponent implements OnInit {
 
     }
   }
-
-
-
-
-
-  cancelClientInfo() {
-    this.route.navigate(['/client/manage']);
-  }
-
   cancelInfo() {
     if (this.showEdit == false) {
       this.FinalSave();
     }
     else {
-      this.route.navigate(['/client/manage']);
+      this.returnToClientManage();
     }
   }
 
@@ -1456,10 +1443,6 @@ export class AddNewClientComponent implements OnInit {
       }
 
     }
-  }
-
-  Nevigate() {
-    this.route.navigate(['/client/manage']);
   }
 
   UpdateService() {

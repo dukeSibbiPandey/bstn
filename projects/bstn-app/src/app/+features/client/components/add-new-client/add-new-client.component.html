@@ -16,26 +16,28 @@
       </nav>
     </div>
   </div>
-  <p-dialog header="Confirmation" [style]="{ width: '75px', height: '20vh', maxHeight: 'none' }" [(visible)]="displayPopupContactFinal" class="modelPopup" [modal]="true" [style]="{ width: '320px', height: '36vh' }"
-  [draggable]="false" [resizable]="false">
-  <div>
-    <p>Are You want to Save Client Without Contact?</p>
-  </div>
-  <div class="button-box">
-    <button class="btn next-btn" (click)="SaveFinal()">Yes</button>
-    <button (click)="CloseFinalPopup()" class="btn cancel-btn ms-3">No</button>
-  </div>
-</p-dialog>
-<p-dialog header="Confirmation" [style]="{ width: '75px', height: '20vh', maxHeight: 'none' }" [(visible)]="displayPopupServiceFinal" class="modelPopup" [modal]="true" [style]="{ width: '320px', height: '36vh' }"
-[draggable]="false" [resizable]="false">
-<div>
-  <p>Are You want to Save Client Without Services?</p>
-</div>
-<div class="button-box">
-  <button class="btn next-btn" (click)="SaveFinal()">Yes</button>
-  <button (click)="CloseFinalPopup()" class="btn cancel-btn ms-3">No</button>
-</div>
-</p-dialog>
+  <p-dialog header="Confirmation" [style]="{ width: '75px', height: '20vh', maxHeight: 'none' }"
+    [(visible)]="displayPopupContactFinal" class="modelPopup" [modal]="true"
+    [style]="{ width: '320px', height: '36vh' }" [draggable]="false" [resizable]="false">
+    <div>
+      <p>Are You want to Save Client Without Contact?</p>
+    </div>
+    <div class="button-box">
+      <button class="btn next-btn" (click)="returnToClientManage()">Yes</button>
+      <button (click)="CloseFinalPopup()" class="btn cancel-btn ms-3">No</button>
+    </div>
+  </p-dialog>
+  <p-dialog header="Confirmation" [style]="{ width: '75px', height: '20vh', maxHeight: 'none' }"
+    [(visible)]="displayPopupServiceFinal" class="modelPopup" [modal]="true"
+    [style]="{ width: '320px', height: '36vh' }" [draggable]="false" [resizable]="false">
+    <div>
+      <p>Are You want to Save Client Without Services?</p>
+    </div>
+    <div class="button-box">
+      <button class="btn next-btn" (click)="returnToClientManage()">Yes</button>
+      <button (click)="CloseFinalPopup()" class="btn cancel-btn ms-3">No</button>
+    </div>
+  </p-dialog>
   <div class="row mt-2">
     <div class="col-6">
       <h2>{{ ViewName }}</h2>
@@ -399,7 +401,7 @@
                   &nbsp;
                   <button pbutton="" pripple="" type="button"
                     class="p-element p-button-secondary btn btn-block btn-sm p-button p-component cancel-btn ms-3"
-                    (click)="cancelClientInfo()">
+                    (click)="returnToClientManage()">
                     Cancel
                   </button>
                 </div>
@@ -605,7 +607,7 @@
 
                 <!-- <button (click)="openAddServiceEditPopup(item.clientServType,item.clientBillingType)">Edit</button> -->
 
-                
+
 
               </label>
               <!-- </div> -->
@@ -631,7 +633,7 @@
     </p-tabPanel>
     <p-tabPanel [selected]="selectedTab === 3" header="Contact Information" [disabled]="showContactInformation"
       class="contact-information">
-     
+
       <ng-template pTemplate="header">
         <span>Contact Information</span>
         <i class="position-relative"><img src="../../../../assets/img/blue-tick.svg" alt=""></i>
