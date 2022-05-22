@@ -12,14 +12,13 @@ import { DropdownModule } from 'primeng/dropdown';
 import { TabViewModule } from "primeng/tabview";
 import { SliderModule } from 'primeng/slider';
 import { SidebarModule } from 'primeng/sidebar';
-
-
+import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule, TableModule, CalendarModule, DialogModule, MultiSelectModule, ContextMenuModule, ToastModule, InputTextModule, ProgressBarModule, DropdownModule, TabViewModule, SliderModule, SidebarModule
+    CommonModule, TableModule, CalendarModule, DialogModule, MultiSelectModule, ContextMenuModule, ToastModule, InputTextModule, ProgressBarModule, DropdownModule, TabViewModule, SliderModule, SidebarModule, InputMaskModule
   ],
-  exports: [CommonModule, TableModule, CalendarModule, DialogModule, MultiSelectModule, ContextMenuModule, ToastModule, InputTextModule, ProgressBarModule, DropdownModule, TabViewModule, SliderModule, SidebarModule]
+  exports: [CommonModule, TableModule, CalendarModule, DialogModule, MultiSelectModule, ContextMenuModule, ToastModule, InputTextModule, ProgressBarModule, DropdownModule, TabViewModule, SliderModule, SidebarModule, InputMaskModule]
 })
 export class ClientCustomModule { }

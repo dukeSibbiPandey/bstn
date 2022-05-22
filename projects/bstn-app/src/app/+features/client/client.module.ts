@@ -12,6 +12,12 @@ import { ClientComponent, ClientManageComponent, ClientProfileComponent, Advance
 
 /* Client Profile Components */
 import { AddNewContactComponent, BowelTrackComponent, ClientAddServicesComponent, ClientPanelMenuComponent, ClientProfileActivityComponent, ClientProfileContactsComponent, ClientProfileDocumentsComponent, ClientProfileHealthPassportComponent, ClientProfileServicesComponent, ClientProfileTherapistsComponent } from './components/client-profile/index';
+import { AddNewClientComponent } from './components/add-new-client/add-new-client.component';
+import { AddClientBehaviorComponent } from './components/add-new-client/add-client-behavior/add-client-behavior.component';
+import { AddClientContactComponent } from './components/add-new-client/add-client-contact/add-client-contact.component';
+
+/* ADD/Edit client */
+
 
 @NgModule({
   declarations: [
@@ -28,7 +34,10 @@ import { AddNewContactComponent, BowelTrackComponent, ClientAddServicesComponent
     ClientProfileActivityComponent,
     ClientProfileHealthPassportComponent,
     ClientProfileServicesComponent,
-    BowelTrackComponent
+    BowelTrackComponent,
+    AddNewClientComponent,
+    AddClientBehaviorComponent,
+    AddClientContactComponent
   ],
   imports: [
     CommonModule,
