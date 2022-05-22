@@ -1,0 +1,41 @@
+.document-main {
+  margin-top: 16px;
+}
+
+.document-main table tr {
+  height: 50px;
+}
+
+.document-main table tr th,
+td {
+  padding-left: 16px;
+}
+
+.document-main table tr th {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 1.33333px;
+  color: #394858;
+}
+
+.document-main table tr td {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #6c757d;
+}
+
+.document-main table tr td img {
+  margin-right: 10px;
+}
+
+.document-main table .second {
+  width: 48%;
+}
+
+.back-grey {
+  background: #f5f5f5;
+}

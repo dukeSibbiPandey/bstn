@@ -1,0 +1,47 @@
+.commonBoxImg {
+  p {
+    span {
+      width: 44% !important;
+      margin-right: 0 !important;
+    }
+    strong {
+      width: 56% !important;
+    }
+  }
+}
+
+.common-box {
+  p {
+    span {
+      width: 32%;
+      margin-right: 4px;
+    }
+    strong {
+      width: 64%;
+    }
+  }
+}
+
+.large-table {
+  .header {
+    padding: 4px 16px;
+
+    & > div > p {
+      font-family: "HelveticaNeue";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 18px;
+      color: #343a40;
+    }
+  }
+
+  .table-head {
+    font-family: "HelveticaNeue-Bold";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #394858;
+  }
+}
