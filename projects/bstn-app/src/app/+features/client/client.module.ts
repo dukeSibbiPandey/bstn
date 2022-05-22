@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientRoutingModule } from './client-routing.module';
 import { ClientComponent } from './components/client.component';
-import { ClientFormComponent } from './components/client-form/client-form.component';
 import { ClientManageComponent } from './components/client-manage/client-manage.component';
 import { ClientProfileComponent } from './components/client-profile/client-profile.component';
 import { NgSelectConfig, NgSelectModule } from '@ng-select/ng-select';
@@ -33,12 +32,9 @@ import { ClientProfileServicesComponent } from './components/client-profile/clie
 import { BowelTrackComponent } from './components/client-profile/bowel-track/bowel-track.component';
 import { SliderModule } from 'primeng/slider';
 import { SidebarModule } from 'primeng/sidebar';
-import { AddClientBehaviorComponent } from './components/client-form/add-client-behavior/add-client-behavior.component';
-import { AddClientContactComponent } from './components/client-form/add-client-contact/add-client-contact.component';
 @NgModule({
   declarations: [
     ClientComponent,
-    ClientFormComponent,
     ClientManageComponent,
     ClientProfileComponent,
     ClientPanelMenuComponent,
@@ -51,9 +47,7 @@ import { AddClientContactComponent } from './components/client-form/add-client-c
     ClientProfileActivityComponent,
     ClientProfileHealthPassportComponent,
     ClientProfileServicesComponent,
-    BowelTrackComponent,
-    AddClientBehaviorComponent,
-    AddClientContactComponent
+    BowelTrackComponent
   ],
   imports: [
     CommonModule,
