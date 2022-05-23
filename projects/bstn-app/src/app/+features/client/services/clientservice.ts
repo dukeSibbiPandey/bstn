@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Customer } from 'projects/bstn-app/src/app/+components/_models/clients';
-import { ClientFilters, AddNewContact, AddNewContactNew, AddBehavior, AddServiceData } from 'projects/bstn-app/src/app/+features/client/_models/client.models';
+import { ClientFilters, AddNewContact, AddNewContactNew, AddBehavior, AddServiceData } from 'projects/bstn-app/src/app/+features/client/models/client.models';
 import * as constanits from 'projects/bstn-app/src/app/_constants/client';
 @Injectable()
 export class ClientsService {

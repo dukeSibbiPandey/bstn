@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddNewContact } from 'projects/bstn-app/src/app/+features/client/_models/client.models';
+import { AddNewContact } from 'projects/bstn-app/src/app/+features/client/models/client.models';
 @Component({
   selector: 'app-client-profile-contacts',
   templateUrl: './client-profile-contacts.component.html',
